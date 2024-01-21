@@ -1,5 +1,6 @@
 using CarSharingInfrastructure.Extentions;
 using CarSharingInfrastructure.Seeders;
+using CarSharingApplication.Extentions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddInfrastrucure(builder.Configuration);
+builder.Services.AddServiceApplication();
 
 var app = builder.Build();
 

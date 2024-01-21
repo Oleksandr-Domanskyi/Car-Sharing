@@ -9,3 +9,8 @@ C:\Users\FeZoX\Desktop\Car Sharing MVC\CarSharingApplication\obj\Debug\net8.0\Ca
 C:\Users\FeZoX\Desktop\Car Sharing MVC\CarSharingApplication\obj\Debug\net8.0\refint\CarSharingApplication.dll
 C:\Users\FeZoX\Desktop\Car Sharing MVC\CarSharingApplication\obj\Debug\net8.0\CarSharingApplication.pdb
 C:\Users\FeZoX\Desktop\Car Sharing MVC\CarSharingApplication\obj\Debug\net8.0\ref\CarSharingApplication.dll
+C:\Users\FeZoX\Desktop\Car Sharing MVC\CarSharingApplication\bin\Debug\net8.0\CarSharingDomain.dll
+C:\Users\FeZoX\Desktop\Car Sharing MVC\CarSharingApplication\bin\Debug\net8.0\CarSharingDomain.pdb
+C:\Users\FeZoX\Desktop\Car Sharing MVC\CarSharingApplication\obj\Debug\net8.0\CarSharingApplication.csproj.AssemblyReference.cache
+C:\Users\FeZoX\Desktop\Car Sharing MVC\CarSharingApplication\obj\Debug\net8.0\CarSharingApplication.sourcelink.json
+C:\Users\FeZoX\Desktop\Car Sharing MVC\CarSharingApplication\obj\Debug\net8.0\CarSharingApplication.csproj.CopyComplete

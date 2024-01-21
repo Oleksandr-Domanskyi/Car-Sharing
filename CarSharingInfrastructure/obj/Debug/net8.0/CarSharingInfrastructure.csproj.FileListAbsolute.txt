@@ -15,3 +15,4 @@ C:\Users\FeZoX\Desktop\Car Sharing MVC\CarSharingInfrastructure\obj\Debug\net8.0
 C:\Users\FeZoX\Desktop\Car Sharing MVC\CarSharingInfrastructure\obj\Debug\net8.0\ref\CarSharingInfrastructure.dll
 C:\Users\FeZoX\Desktop\Car Sharing MVC\CarSharingInfrastructure\bin\Debug\net8.0\CarSharingInfrastructure.runtimeconfig.json
 C:\Users\FeZoX\Desktop\Car Sharing MVC\CarSharingInfrastructure\obj\Debug\net8.0\CarSharingInfrastructure.genruntimeconfig.cache
+C:\Users\FeZoX\Desktop\Car Sharing MVC\CarSharingInfrastructure\obj\Debug\net8.0\CarSharingInfrastructure.sourcelink.json
