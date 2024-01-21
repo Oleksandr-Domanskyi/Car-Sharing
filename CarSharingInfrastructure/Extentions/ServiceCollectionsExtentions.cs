@@ -1,4 +1,6 @@
-﻿using CarSharingInfrastructure.Database;
+﻿using CarSharingDomain.Interfaces;
+using CarSharingInfrastructure.Database;
+using CarSharingInfrastructure.Repositories;
 using CarSharingInfrastructure.Seeders;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -18,6 +20,8 @@ namespace CarSharingInfrastructure.Extentions
         {
             service.AddDbContext<CarSharingDbContext>(options =>
                 options.UseSqlServer(configuration.GetConnectionString("CarSharingConnectionString")));
+
+            service.AddScoped<ICarSharingRepositories, CarSharingRepositories>();
 
             service.AddScoped<CarSharingSeeder>();
         }
