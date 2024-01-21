@@ -1,0 +1,11 @@
+C:\Users\FeZoX\Desktop\Car Sharing MVC\CarSharingApplication\bin\Debug\net8.0\CarSharingApplication.deps.json
+C:\Users\FeZoX\Desktop\Car Sharing MVC\CarSharingApplication\bin\Debug\net8.0\CarSharingApplication.dll
+C:\Users\FeZoX\Desktop\Car Sharing MVC\CarSharingApplication\bin\Debug\net8.0\CarSharingApplication.pdb
+C:\Users\FeZoX\Desktop\Car Sharing MVC\CarSharingApplication\obj\Debug\net8.0\CarSharingApplication.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\FeZoX\Desktop\Car Sharing MVC\CarSharingApplication\obj\Debug\net8.0\CarSharingApplication.AssemblyInfoInputs.cache
+C:\Users\FeZoX\Desktop\Car Sharing MVC\CarSharingApplication\obj\Debug\net8.0\CarSharingApplication.AssemblyInfo.cs
+C:\Users\FeZoX\Desktop\Car Sharing MVC\CarSharingApplication\obj\Debug\net8.0\CarSharingApplication.csproj.CoreCompileInputs.cache
+C:\Users\FeZoX\Desktop\Car Sharing MVC\CarSharingApplication\obj\Debug\net8.0\CarSharingApplication.dll
+C:\Users\FeZoX\Desktop\Car Sharing MVC\CarSharingApplication\obj\Debug\net8.0\refint\CarSharingApplication.dll
+C:\Users\FeZoX\Desktop\Car Sharing MVC\CarSharingApplication\obj\Debug\net8.0\CarSharingApplication.pdb
+C:\Users\FeZoX\Desktop\Car Sharing MVC\CarSharingApplication\obj\Debug\net8.0\ref\CarSharingApplication.dll

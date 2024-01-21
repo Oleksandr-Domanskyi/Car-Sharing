@@ -1,0 +1,17 @@
+C:\Users\FeZoX\Desktop\Car Sharing MVC\CarSharingInfrastructure\bin\Debug\net8.0\CarSharingInfrastructure.deps.json
+C:\Users\FeZoX\Desktop\Car Sharing MVC\CarSharingInfrastructure\bin\Debug\net8.0\CarSharingInfrastructure.dll
+C:\Users\FeZoX\Desktop\Car Sharing MVC\CarSharingInfrastructure\bin\Debug\net8.0\CarSharingInfrastructure.pdb
+C:\Users\FeZoX\Desktop\Car Sharing MVC\CarSharingInfrastructure\bin\Debug\net8.0\CarSharingDomain.dll
+C:\Users\FeZoX\Desktop\Car Sharing MVC\CarSharingInfrastructure\bin\Debug\net8.0\CarSharingDomain.pdb
+C:\Users\FeZoX\Desktop\Car Sharing MVC\CarSharingInfrastructure\obj\Debug\net8.0\CarSharingInfrastructure.csproj.AssemblyReference.cache
+C:\Users\FeZoX\Desktop\Car Sharing MVC\CarSharingInfrastructure\obj\Debug\net8.0\CarSharingInfrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\FeZoX\Desktop\Car Sharing MVC\CarSharingInfrastructure\obj\Debug\net8.0\CarSharingInfrastructure.AssemblyInfoInputs.cache
+C:\Users\FeZoX\Desktop\Car Sharing MVC\CarSharingInfrastructure\obj\Debug\net8.0\CarSharingInfrastructure.AssemblyInfo.cs
+C:\Users\FeZoX\Desktop\Car Sharing MVC\CarSharingInfrastructure\obj\Debug\net8.0\CarSharingInfrastructure.csproj.CoreCompileInputs.cache
+C:\Users\FeZoX\Desktop\Car Sharing MVC\CarSharingInfrastructure\obj\Debug\net8.0\CarSharingInfrastructure.csproj.CopyComplete
+C:\Users\FeZoX\Desktop\Car Sharing MVC\CarSharingInfrastructure\obj\Debug\net8.0\CarSharingInfrastructure.dll
+C:\Users\FeZoX\Desktop\Car Sharing MVC\CarSharingInfrastructure\obj\Debug\net8.0\refint\CarSharingInfrastructure.dll
+C:\Users\FeZoX\Desktop\Car Sharing MVC\CarSharingInfrastructure\obj\Debug\net8.0\CarSharingInfrastructure.pdb
+C:\Users\FeZoX\Desktop\Car Sharing MVC\CarSharingInfrastructure\obj\Debug\net8.0\ref\CarSharingInfrastructure.dll
+C:\Users\FeZoX\Desktop\Car Sharing MVC\CarSharingInfrastructure\bin\Debug\net8.0\CarSharingInfrastructure.runtimeconfig.json
+C:\Users\FeZoX\Desktop\Car Sharing MVC\CarSharingInfrastructure\obj\Debug\net8.0\CarSharingInfrastructure.genruntimeconfig.cache
