@@ -10,9 +10,10 @@ namespace CarSharingDomain.DomainModels
     {
         public Guid Id { get; set; }
         public string? Name { get; set; }
-        public string? TypeFile { get; set; }
-        public byte[]? Data { get; set; }
+        public string? FileType { get; set; }
+        public byte[]? DataFile { get; set; }
 
+        public Guid CarProfileId { get; set; }
         public virtual CarProfileModel? CarProfileModel { get; set; }
 
     }

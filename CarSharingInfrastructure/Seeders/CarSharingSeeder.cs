@@ -31,14 +31,14 @@ namespace CarSharingInfrastructure.Seeders
                         " eleganckimi elementami: dostępnym tylko w tej wersji lakierem w kolorze Artisan Red," +
                         " wysokiej jakości brązowym wnętrzem z akcentami wykonanymi z wyjątkowego zamszu" +
                         " Leganu® i skóry nappa oraz wieloma innymi niepowtarzalnymi detalami.",
-                        Characteristics = new Chatacteristics()
+                        Characteristics = new CarChatacteristics()
                         {
                             Silnik = "SKYACTIV-G 194KM\r\n194 (143) [KM (kW)] | Silnik benzynowy",
                             Color = "ARTISAN RED",
                             Felgi = "OBRĘCZE ALUMINIOWE 19\" 20TH ANNIVERSARY (OPONY 225/45)",
                             Tapicerka = "EKSKLUZYWNA TAPICERKA SKÓRZANA NAPPA W KOLORZE BRĄZOWYM"
                         },
-                        Images = new List<Image>(),
+                        Image = default!,
                         PricePerDay = 200M
                     };
                     await _dbContext.AddAsync(Mazda6_Kombi);

@@ -49,16 +49,19 @@ namespace CarSharingInfrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid>("CarProfileId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<Guid?>("CarProfileModelId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<byte[]>("Data")
+                    b.Property<byte[]>("DataFile")
                         .HasColumnType("varbinary(max)");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("FileType")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("TypeFile")
+                    b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -95,13 +98,14 @@ namespace CarSharingInfrastructure.Migrations
                                 .HasForeignKey("CarProfileModelId");
                         });
 
-                    b.Navigation("Characteristics");
+                    b.Navigation("Characteristics")
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("CarSharingDomain.DomainModels.Image", b =>
                 {
                     b.HasOne("CarSharingDomain.DomainModels.CarProfileModel", "CarProfileModel")
-                        .WithMany("Images")
+                        .WithMany("Image")
                         .HasForeignKey("CarProfileModelId");
 
                     b.Navigation("CarProfileModel");
@@ -109,7 +113,7 @@ namespace CarSharingInfrastructure.Migrations
 
             modelBuilder.Entity("CarSharingDomain.DomainModels.CarProfileModel", b =>
                 {
-                    b.Navigation("Images");
+                    b.Navigation("Image");
                 });
 #pragma warning restore 612, 618
         }

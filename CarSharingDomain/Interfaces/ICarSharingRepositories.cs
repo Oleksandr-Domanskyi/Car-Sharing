@@ -11,5 +11,7 @@ namespace CarSharingDomain.Interfaces
     {
         Task<IEnumerable<CarProfileModel?>> GetAll();
         Task<CarProfileModel?> GetByName(string name);
+
+        Task Create (CarProfileModel model);
     }
 }

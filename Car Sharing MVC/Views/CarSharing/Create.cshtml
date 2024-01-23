@@ -1,0 +1,68 @@
+﻿@model CarSharingApplication.DataTransferObjects.CarSharingProfileModelObject
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>CarSharingProfileModelObject</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label">Name</label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label">Description</label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PricePerDay" class="control-label">Price Per Day</label>
+                <input asp-for="PricePerDay" class="form-control" />
+                <span asp-validation-for="PricePerDay" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Silnik" class="control-label">Silnik</label>
+                <input asp-for="Silnik" class="form-control" />
+                <span asp-validation-for="Silnik" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Color" class="control-label">Color</label>
+                <input asp-for="Color" class="form-control" />
+                <span asp-validation-for="Color" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Felgi" class="control-label">Felgi</label>
+                <input asp-for="Felgi" class="form-control" />
+                <span asp-validation-for="Felgi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tapicerka" class="control-label">Tapicerka</label>
+                <input asp-for="Tapicerka" class="form-control" />
+                <span asp-validation-for="Tapicerka" class="text-danger"></span>
+            </div>
+            <div>
+                <label asp-for="Images">Images</label>
+                <input asp-for="Images" type="file" multiple />
+                <span asp-validation-for="Images" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

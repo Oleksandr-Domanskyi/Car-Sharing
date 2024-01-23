@@ -1,4 +1,4 @@
-﻿using CarSharingApplication.CarSharing.Command.Queries.GetAllCarSharing;
+﻿using CarSharingApplication.CarSharing.Queries.GetAllCarSharing;
 using CarSharingApplication.Mapping;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;

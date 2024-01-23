@@ -13,13 +13,13 @@ namespace CarSharingApplication.DataTransferObjects
     {
         public string Name { get; set; } = default!;
         public string? Description { get; set; }
-        public Chatacteristics? Characteristics { get; set; } = default;
+        public CarChatacteristics? Characteristics { get; set; } = default;
         public decimal? PricePerDay { get; set; }
         public string? Silnik { get; set; }
         public string? Color { get; set; }
         public string? Felgi { get; set; }
         public string? Tapicerka { get; set; }
-        public List<Image>? Images { get; set; }
+        public List<IFormFile> Images { get; set; } = default!;
 
     }
 

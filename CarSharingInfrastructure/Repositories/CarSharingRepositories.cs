@@ -18,8 +18,15 @@ namespace CarSharingInfrastructure.Repositories
         {
             _dbContext = dbContext;
         }
+
+        public async Task Create(CarProfileModel model)
+        {
+            await _dbContext.AddAsync(model);
+            await _dbContext.SaveChangesAsync();
+        }
+
         public async Task<IEnumerable<CarProfileModel?>> GetAll()
-            =>await _dbContext.CarProfileModels.ToListAsync();
+            =>await _dbContext.CarProfileModels.Include(img=>img.Image).ToListAsync();
   
         public async Task<CarProfileModel?> GetByName(string name)
             =>await _dbContext.CarProfileModels.FirstOrDefaultAsync(x => x.Name == name);
