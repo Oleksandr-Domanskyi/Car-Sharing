@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace CarSharingApplication.CarSharing.Queries.GetAllCarSharing
 {
-    public class GetAllCarSharingQueryHandler : IRequestHandler<GetAllCarSharingQuery, IEnumerable<CarSharingProfileModelObject>>
+    public class GetAllCarSharingQueryHandler : IRequestHandler<GetAllCarSharingQuery, IEnumerable<ShowCarSharingProfileModelObject>>
     {
         private readonly ICarSharingRepositories _carSharingRepositories;
         private readonly IMapper _mapper;
@@ -21,10 +21,10 @@ namespace CarSharingApplication.CarSharing.Queries.GetAllCarSharing
             _mapper = mapper;
         }
 
-        public async Task<IEnumerable<CarSharingProfileModelObject>> Handle(GetAllCarSharingQuery request, CancellationToken cancellationToken)
+        public async Task<IEnumerable<ShowCarSharingProfileModelObject>> Handle(GetAllCarSharingQuery request, CancellationToken cancellationToken)
         {
             var CarSharingDomain = await _carSharingRepositories.GetAll();
-            var ParseCarDomainToCarObject = _mapper.Map<IEnumerable<CarSharingProfileModelObject>>(CarSharingDomain);
+            var ParseCarDomainToCarObject = _mapper.Map<IEnumerable<ShowCarSharingProfileModelObject>>(CarSharingDomain);
             return ParseCarDomainToCarObject;
         }
     }

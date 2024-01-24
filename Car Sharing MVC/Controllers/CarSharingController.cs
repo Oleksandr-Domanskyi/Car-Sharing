@@ -1,5 +1,6 @@
 ﻿using CarSharingApplication.CarSharing.Commands;
 using CarSharingApplication.CarSharing.Queries.GetAllCarSharing;
+using CarSharingDomain.Interfaces;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,16 +9,35 @@ namespace Car_Sharing_MVC.Controllers
     public class CarSharingController : Controller
     {
         private readonly IMediator _mediator;
+        private readonly ICarSharingRepositories _carSharingRepositories;
 
-        public CarSharingController(IMediator mediator)
+        public CarSharingController(IMediator mediator,ICarSharingRepositories carSharingRepositories)
         {
             _mediator = mediator;
+            _carSharingRepositories = carSharingRepositories;
         }
         public async Task<IActionResult> Index()
         {
-            var CarSharing = await _mediator.Send(new GetAllCarSharingQuery());
-            return View(CarSharing);
+            var carSharingList = await _mediator.Send(new GetAllCarSharingQuery());
+
+            return View(carSharingList);
         }
+        [HttpGet]
+        public async Task<IActionResult> GetImage(Guid imageId)
+        {
+            var image = await _carSharingRepositories.GetImageById(imageId);
+
+            if (image != null)
+            {
+                return File(image.DataFile!, image.FileType!); 
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
+
+
         public IActionResult Create()
         {
             return View();

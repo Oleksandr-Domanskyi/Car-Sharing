@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
+using Image = CarSharingDomain.DomainModels.Image;
 
 namespace CarSharingDomain.Interfaces
 {
@@ -11,6 +13,8 @@ namespace CarSharingDomain.Interfaces
     {
         Task<IEnumerable<CarProfileModel?>> GetAll();
         Task<CarProfileModel?> GetByName(string name);
+
+        Task<Image?> GetImageById(Guid imageId);
 
         Task Create (CarProfileModel model);
     }

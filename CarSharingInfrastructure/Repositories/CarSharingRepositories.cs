@@ -19,6 +19,8 @@ namespace CarSharingInfrastructure.Repositories
             _dbContext = dbContext;
         }
 
+        //CarProfile Repositories
+
         public async Task Create(CarProfileModel model)
         {
             await _dbContext.AddAsync(model);
@@ -29,6 +31,13 @@ namespace CarSharingInfrastructure.Repositories
             =>await _dbContext.CarProfileModels.Include(img=>img.Image).ToListAsync();
   
         public async Task<CarProfileModel?> GetByName(string name)
-            =>await _dbContext.CarProfileModels.FirstOrDefaultAsync(x => x.Name == name);
+            =>await _dbContext.CarProfileModels.FirstOrDefaultAsync(Enteties => Enteties.Name == name);
+
+
+        //Images Repositories
+
+        public async Task<Image?> GetImageById(Guid imageId)
+            => await _dbContext.Images.FirstOrDefaultAsync(Enteties => Enteties.Id == imageId);
+       
     }
 }

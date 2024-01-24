@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CarSharingApplication.CarSharing.Commands
 {
-    public class CreateCarSharingCommand:CarSharingProfileModelObject,IRequest
+    public class CreateCarSharingCommand:CreateCarSharingProfileModelObject,IRequest
     {
     }
 }

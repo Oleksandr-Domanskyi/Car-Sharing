@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CarSharingApplication.CarSharing.Queries.GetAllCarSharing
 {
-    public class GetAllCarSharingQuery : IRequest<IEnumerable<CarSharingProfileModelObject>>
+    public class GetAllCarSharingQuery : IRequest<IEnumerable<ShowCarSharingProfileModelObject>>
     {
     }
 }

@@ -3,13 +3,12 @@ using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection.PortableExecutable;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace CarSharingApplication.DataTransferObjects
 {
-    public class CarSharingProfileModelObject
+    public class ShowCarSharingProfileModelObject
     {
         public string Name { get; set; } = default!;
         public string? Description { get; set; }
@@ -19,8 +18,7 @@ namespace CarSharingApplication.DataTransferObjects
         public string? Color { get; set; }
         public string? Felgi { get; set; }
         public string? Tapicerka { get; set; }
-        public List<IFormFile> Images { get; set; } = default!;
+        public List<Image> Images { get; set; } = default!;
 
     }
-
 }
