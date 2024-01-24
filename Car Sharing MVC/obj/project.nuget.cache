@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Wz31RAfbS+ed1Im4RN/lVjQ8NX2kJNRkOFpnH32UHwGiBpedZqSL1tb/yjuF1m2kG3eosDma77M1dvwY0iF/7w==",
+  "dgSpecHash": "20q5d5M8sgwdPtcvdCR7R6gmM0dSJ/QD2ZX6QpRD1j2dDI4PJ4ONa9ASR3m8JUky2r0a2vTvRt0uCSrqpHxF5A==",
   "success": true,
   "projectFilePath": "C:\\Users\\FeZoX\\Desktop\\Car Sharing MVC\\Car Sharing MVC\\Car Sharing MVC.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,9 @@
     "C:\\Users\\FeZoX\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
     "C:\\Users\\FeZoX\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\FeZoX\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
+    "C:\\Users\\FeZoX\\.nuget\\packages\\fluentvalidation\\11.5.1\\fluentvalidation.11.5.1.nupkg.sha512",
+    "C:\\Users\\FeZoX\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.3.0\\fluentvalidation.aspnetcore.11.3.0.nupkg.sha512",
+    "C:\\Users\\FeZoX\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.5.1\\fluentvalidation.dependencyinjectionextensions.11.5.1.nupkg.sha512",
     "C:\\Users\\FeZoX\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\FeZoX\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\FeZoX\\.nuget\\packages\\humanizer.core.af\\2.14.1\\humanizer.core.af.2.14.1.nupkg.sha512",

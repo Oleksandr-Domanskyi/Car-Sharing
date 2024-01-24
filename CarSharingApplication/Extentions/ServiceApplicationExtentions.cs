@@ -1,5 +1,8 @@
-﻿using CarSharingApplication.CarSharing.Queries.GetAllCarSharing;
+﻿using CarSharingApplication.CarSharing.Commands;
+using CarSharingApplication.CarSharing.Queries.GetAllCarSharing;
 using CarSharingApplication.Mapping;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -16,6 +19,10 @@ namespace CarSharingApplication.Extentions
         {
             services.AddMediatR(typeof(GetAllCarSharingQuery));
             services.AddAutoMapper(typeof(CarSharingMappingProfile));
+
+            services.AddValidatorsFromAssemblyContaining<CreateCarSharingCommandValidator>()
+                .AddFluentValidationAutoValidation()
+                .AddFluentValidationClientsideAdapters();
         }
     }
 }

@@ -4,79 +4,46 @@
     ViewData["Title"] = "Index";
 }
 
+<head>
+    <!-- Другие теги в head, если они есть -->
+    <link rel="stylesheet" href="/css/CarSharingIndex.css" />
+</head>
+
 <h1>Index</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PricePerDay)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Silnik)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Color)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Felgi)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Tapicerka)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Images)
-            </th>
-                
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PricePerDay)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Silnik)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Color)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Felgi)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Tapicerka)
-            </td>
-                <td>
-                    @foreach (var image in item.Images.Where(i => i != null))
-                    {
-                        <img width="300" height="300" src="@Url.Action("GetImage", "CarSharing", new { imageId = image.Id })" alt="@image.Name" />
-                    }
-                </td>
+<div class="row justify-content-center">
+    @foreach (var item in Model)
+    {
+        var firstImage = item.Images.LastOrDefault(i => i != null);
 
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+        <div class="card m-3 position-relative" style="width: 25rem; height: 30rem; position: relative; overflow: hidden; background: url('@Url.Action("GetImage", "CarSharing", new { imageId = firstImage?.Id })') center/cover;">
+            <div class="card-overlay"></div>
+
+            <div class="card-body text-white">
+                <h5 class="card-title">@item.Name</h5>
+                <h6 class="card-subtitle mb-1">@item.PricePerDay Zł Per Day</h6>
+                <img class="card-image rounded-circle w-100" src="@Url.Action("GetImage", "CarSharing", new { imageId = firstImage?.Id })" alt="@item.Name">
+
+                <div class="mt-4 bottom-0 w-100 d-flex flex-column">
+                    <p class="card-text">Country: Poland</p>
+                    <p class="card-text">City: Rzeszów</p>
+                    <p class="card-subtitle">Contact number: +48000000 </p>
+
+                    <div class="d-flex justify-content-between mt-3">
+                        <a class="btn btn-primary">Details</a>
+                        <a class="btn btn-outline-secondary">Edit</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    }
+</div>
+
+
+
+
+

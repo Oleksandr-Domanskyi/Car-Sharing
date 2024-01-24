@@ -1,11 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "jUStUdwodmC8VFPI5WQGGy6XJSX6EgxCab7q6Gvg+DKo+BySFo1YUQbN8jVW9XmyD+EkbqCPkrcdMxjy7kBXsQ==",
+  "dgSpecHash": "kuS+e75ajEto3vxLiEDGU+900toGmEpNm6T5jGm78u+kI9pB4yb3qck9/KQBbe85Hp+tJApsQJ+envYDTg/bSg==",
   "success": true,
   "projectFilePath": "C:\\Users\\FeZoX\\Desktop\\Car Sharing MVC\\CarSharingApplication\\CarSharingApplication.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\FeZoX\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\FeZoX\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
+    "C:\\Users\\FeZoX\\.nuget\\packages\\fluentvalidation\\11.5.1\\fluentvalidation.11.5.1.nupkg.sha512",
+    "C:\\Users\\FeZoX\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.3.0\\fluentvalidation.aspnetcore.11.3.0.nupkg.sha512",
+    "C:\\Users\\FeZoX\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.5.1\\fluentvalidation.dependencyinjectionextensions.11.5.1.nupkg.sha512",
     "C:\\Users\\FeZoX\\.nuget\\packages\\mediatr\\11.0.0\\mediatr.11.0.0.nupkg.sha512",
     "C:\\Users\\FeZoX\\.nuget\\packages\\mediatr.contracts\\1.0.1\\mediatr.contracts.1.0.1.nupkg.sha512",
     "C:\\Users\\FeZoX\\.nuget\\packages\\mediatr.extensions.microsoft.dependencyinjection\\11.0.0\\mediatr.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",

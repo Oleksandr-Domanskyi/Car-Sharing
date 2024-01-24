@@ -15,6 +15,6 @@ namespace CarSharingDomain.DomainModels
         public CarChatacteristics Characteristics { get; set; } = default!;
         public decimal? PricePerDay { get; set; }
 
-        public List<Image?> Image { get; set; } = default!;
+        public List<Image> Image { get; set; } = default!;
     }
 }

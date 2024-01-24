@@ -3,6 +3,7 @@ using CarSharingApplication.CarSharing.Queries.GetAllCarSharing;
 using CarSharingDomain.Interfaces;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel.DataAnnotations;
 
 namespace Car_Sharing_MVC.Controllers
 {
@@ -45,6 +46,10 @@ namespace Car_Sharing_MVC.Controllers
         [HttpPost]
         public async Task<IActionResult> Create([FromForm] CreateCarSharingCommand command, [FromForm] List<IFormFile> images)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(command);
+            }
             await _mediator.Send(command);
             return RedirectToAction(nameof(Index));
         }
