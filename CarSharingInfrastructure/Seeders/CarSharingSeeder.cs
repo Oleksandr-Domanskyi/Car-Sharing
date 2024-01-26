@@ -33,10 +33,10 @@ namespace CarSharingInfrastructure.Seeders
                         " Leganu® i skóry nappa oraz wieloma innymi niepowtarzalnymi detalami.",
                         Characteristics = new CarChatacteristics()
                         {
-                            Silnik = "SKYACTIV-G 194KM\r\n194 (143) [KM (kW)] | Silnik benzynowy",
+                            Engine = "SKYACTIV-G 194KM\r\n194 (143) [KM (kW)] | Silnik benzynowy",
                             Color = "ARTISAN RED",
-                            Felgi = "OBRĘCZE ALUMINIOWE 19\" 20TH ANNIVERSARY (OPONY 225/45)",
-                            Tapicerka = "EKSKLUZYWNA TAPICERKA SKÓRZANA NAPPA W KOLORZE BRĄZOWYM"
+                            Rims = "OBRĘCZE ALUMINIOWE 19\" 20TH ANNIVERSARY (OPONY 225/45)",
+                            Upholstery = "EKSKLUZYWNA TAPICERKA SKÓRZANA NAPPA W KOLORZE BRĄZOWYM"
                         },
                         Image = default!,
                         PricePerDay = 200M

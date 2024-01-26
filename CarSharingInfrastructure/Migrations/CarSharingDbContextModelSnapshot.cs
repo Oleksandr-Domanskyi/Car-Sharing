@@ -73,7 +73,7 @@ namespace CarSharingInfrastructure.Migrations
 
             modelBuilder.Entity("CarSharingDomain.DomainModels.CarProfileModel", b =>
                 {
-                    b.OwnsOne("CarSharingDomain.DomainModels.Chatacteristics", "Characteristics", b1 =>
+                    b.OwnsOne("CarSharingDomain.DomainModels.CarChatacteristics", "Characteristics", b1 =>
                         {
                             b1.Property<Guid>("CarProfileModelId")
                                 .HasColumnType("uniqueidentifier");
@@ -81,13 +81,13 @@ namespace CarSharingInfrastructure.Migrations
                             b1.Property<string>("Color")
                                 .HasColumnType("nvarchar(max)");
 
-                            b1.Property<string>("Felgi")
+                            b1.Property<string>("Engine")
                                 .HasColumnType("nvarchar(max)");
 
-                            b1.Property<string>("Silnik")
+                            b1.Property<string>("Rims")
                                 .HasColumnType("nvarchar(max)");
 
-                            b1.Property<string>("Tapicerka")
+                            b1.Property<string>("Upholstery")
                                 .HasColumnType("nvarchar(max)");
 
                             b1.HasKey("CarProfileModelId");
@@ -97,6 +97,34 @@ namespace CarSharingInfrastructure.Migrations
                             b1.WithOwner()
                                 .HasForeignKey("CarProfileModelId");
                         });
+
+                    b.OwnsOne("CarSharingDomain.DomainModels.CarContactDetails", "CarContactDetails", b1 =>
+                        {
+                            b1.Property<Guid>("CarProfileModelId")
+                                .HasColumnType("uniqueidentifier");
+
+                            b1.Property<string>("City")
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.Property<string>("ContactNumber")
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.Property<int?>("Coutry")
+                                .HasColumnType("int");
+
+                            b1.Property<int>("ValueMoney")
+                                .HasColumnType("int");
+
+                            b1.HasKey("CarProfileModelId");
+
+                            b1.ToTable("CarProfileModels");
+
+                            b1.WithOwner()
+                                .HasForeignKey("CarProfileModelId");
+                        });
+
+                    b.Navigation("CarContactDetails")
+                        .IsRequired();
 
                     b.Navigation("Characteristics")
                         .IsRequired();

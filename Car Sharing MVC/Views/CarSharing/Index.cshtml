@@ -18,29 +18,33 @@
     @foreach (var item in Model)
     {
         var firstImage = item.Images.LastOrDefault(i => i != null);
-
-        <div class="card m-3 position-relative" style="width: 25rem; height: 30rem; position: relative; overflow: hidden; background: url('@Url.Action("GetImage", "CarSharing", new { imageId = firstImage?.Id })') center/cover;">
+        if (item.Coutry == null || item.City == null || item.ContactNumber == null)
+        {
+            item.Coutry = "Poland";
+            item.City = "Rzeszów";
+            item.ContactNumber = "+48000000";
+        }
+        <div class="card m-3 position-relative" style="width: 25rem; height: 30rem; position: relative; overflow: hidden; background: url('@Url.Action("GetImage", "CarSharing", new { imageId = firstImage?.Id })') center; background-size: cover;">
             <div class="card-overlay"></div>
-
             <div class="card-body text-white">
                 <h5 class="card-title">@item.Name</h5>
-                <h6 class="card-subtitle mb-1">@item.PricePerDay Zł Per Day</h6>
-                <img class="card-image rounded-circle w-100" src="@Url.Action("GetImage", "CarSharing", new { imageId = firstImage?.Id })" alt="@item.Name">
+                <h6 class="card-subtitle mb-1">@item.PricePerDay @item.ValueMoney/Day</h6>
+                <img class="card-image rounded-circle w-100" src="@Url.Action("GetIndexImage", "CarSharing", new { imageId = firstImage?.Id })" alt="@item.Name" style="width: 340px; height: 190px;">
 
                 <div class="mt-4 bottom-0 w-100 d-flex flex-column">
-                    <p class="card-text">Country: Poland</p>
-                    <p class="card-text">City: Rzeszów</p>
-                    <p class="card-subtitle">Contact number: +48000000 </p>
+                    <p class="card-text">Country: @item.Coutry</p>
+                    <p class="card-text">City: @item.City</p>
+                    <p class="card-subtitle">Contact number: @item.ContactNumber </p>
 
                     <div class="d-flex justify-content-between mt-3">
-                        <a class="btn btn-primary">Details</a>
+                        <a class="btn btn-primary" asp-controller="CarSharing" asp-action="Details", asp-route-Id ="@item.Id">Details</a>
                         <a class="btn btn-outline-secondary">Edit</a>
                     </div>
                 </div>
-
             </div>
         </div>
     }
+
 </div>
 
 

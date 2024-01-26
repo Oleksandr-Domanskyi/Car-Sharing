@@ -1,0 +1,38 @@
+﻿@model CarSharingApplication.DataTransferObjects.ShowCarSharingProfileModelObject
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<head>
+    <!-- Other head tags, if any -->
+    <link rel="stylesheet" href="/css/CarSharingIndex.css" />
+</head>
+
+<h1>Car Details</h1>
+
+<div class="row justify-content-center">
+    <div class="card position-relative">
+        <div class="card-overlay"></div>
+        <div class="card-body text-white">
+            <h5 class="card-title">@Model.Name</h5>
+            <h6 class="card-subtitle mb-1">@Model.PricePerDay @Model.ValueMoney/Day</h6>
+
+            @foreach (var image in Model.Images)
+            {
+                <img class="card-image rounded-circle w-100" src="@Url.Action("GetDetailsImage", "CarSharing", new { imageId = image.Id })" alt="@image.Name" style="width: 340px; height: 190px;">
+            }
+
+            <div class="mt-4 bottom-0 w-100 d-flex flex-column">
+                <p class="card-text">Country: @Model.Coutry</p>
+                <p class="card-text">City: @Model.City</p>
+                <p class="card-subtitle">Contact number: @Model.ContactNumber</p>
+
+                <div class="d-flex justify-content-between mt-3">
+                    <a class="btn btn-primary" asp-controller="CarSharing" asp-action="Details" asp-route-Id="@Model.Id">Details</a>
+                    <a class="btn btn-outline-secondary">Edit</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

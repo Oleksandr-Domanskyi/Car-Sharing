@@ -8,9 +8,9 @@ namespace CarSharingDomain.DomainModels
 {
     public class CarChatacteristics
     {
-        public string? Silnik { get; set; }
+        public string? Engine { get; set; }
         public string? Color { get; set; }
-        public string? Felgi { get; set; }
-        public string? Tapicerka { get; set; }
+        public string? Rims { get; set; }
+        public string? Upholstery { get; set; }
     }
 }

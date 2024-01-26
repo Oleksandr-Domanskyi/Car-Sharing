@@ -30,8 +30,8 @@ namespace CarSharingInfrastructure.Repositories
         public async Task<IEnumerable<CarProfileModel?>> GetAll()
             =>await _dbContext.CarProfileModels.Include(img=>img.Image).ToListAsync();
   
-        public async Task<CarProfileModel?> GetByName(string name)
-            =>await _dbContext.CarProfileModels.FirstOrDefaultAsync(Enteties => Enteties.Name == name);
+        public async Task<CarProfileModel?> GetByName(Guid id)
+            =>await _dbContext.CarProfileModels.Include(img=>img.Image).FirstOrDefaultAsync(Enteties => Enteties.Id == id);
 
 
         //Images Repositories

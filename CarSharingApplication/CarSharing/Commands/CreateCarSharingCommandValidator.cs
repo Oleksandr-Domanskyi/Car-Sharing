@@ -16,15 +16,23 @@ namespace CarSharingApplication.CarSharing.Commands
             RuleFor(c => c.Name)
                 .NotEmpty()
                 .MinimumLength(2).WithMessage("Name should have atleast 2 characters")
-                .MaximumLength(20).WithMessage("Name should have maximum 20 characters")
+                .MaximumLength(20).WithMessage("Name should have maximum 20 characters");
                
             RuleFor(c => c.Description)
-               .NotEmpty().WithMessage("Please Enter description");
+               .NotEmpty().WithMessage("Please Enter Description");
 
             RuleFor(c=>c.Images).Must(HaveValidImageTypes)
                 .WithMessage("Invalid image type. Allowed types are: jpg, jpeg, png, gif");
 
+            RuleFor(c => c.PricePerDay).NotEmpty().WithMessage("Please Enter Price");
+
+            RuleFor(c => c.ContactNumber).NotEmpty().WithMessage("Please Enter your Contact Number");
+            RuleFor(c => c.City).NotEmpty().WithMessage("Please Enter City");
+
+
         }
+      
+
         private bool HaveValidImageTypes(List<IFormFile> images)
         {
             if (images == null || !images.Any())

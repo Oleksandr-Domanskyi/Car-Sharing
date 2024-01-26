@@ -21,6 +21,7 @@ namespace CarSharingInfrastructure.Database
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<CarProfileModel>().OwnsOne(c => c.Characteristics);
+            modelBuilder.Entity<CarProfileModel>().OwnsOne(c => c.CarContactDetails);
             
         }
     }

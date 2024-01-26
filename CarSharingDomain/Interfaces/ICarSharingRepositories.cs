@@ -12,7 +12,7 @@ namespace CarSharingDomain.Interfaces
     public interface ICarSharingRepositories
     {
         Task<IEnumerable<CarProfileModel?>> GetAll();
-        Task<CarProfileModel?> GetByName(string name);
+        Task<CarProfileModel?> GetByName(Guid Id);
 
         Task<Image?> GetImageById(Guid imageId);
 

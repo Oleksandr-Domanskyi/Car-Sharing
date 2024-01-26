@@ -1,5 +1,6 @@
 ﻿using CarSharingApplication.CarSharing.Commands;
 using CarSharingApplication.CarSharing.Queries.GetAllCarSharing;
+using CarSharingApplication.CarSharing.Queries.GetByNameCarSharing;
 using CarSharingDomain.Interfaces;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -24,7 +25,7 @@ namespace Car_Sharing_MVC.Controllers
             return View(carSharingList);
         }
         [HttpGet]
-        public async Task<IActionResult> GetImage(Guid imageId)
+        public async Task<IActionResult> GetIndexImage(Guid imageId)
         {
             var image = await _carSharingRepositories.GetImageById(imageId);
 
@@ -37,7 +38,26 @@ namespace Car_Sharing_MVC.Controllers
                 return NotFound();
             }
         }
+        [Route("CarSharing/{Id}/Details")]
+        public async Task<IActionResult> Details(Guid Id)
+        {
+            var dto = await _mediator.Send(new GetByNameCarSharingQuery(Id));
+            return View(dto);
+        }
+         [HttpGet]
+        public async Task<IActionResult> GetDetailsImage(Guid imageId)
+        {
+            var image = await _carSharingRepositories.GetImageById(imageId);
 
+            if (image != null)
+            {
+                return File(image.DataFile!, image.FileType!); 
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
 
         public IActionResult Create()
         {
