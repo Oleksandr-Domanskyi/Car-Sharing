@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\Car Sharing MVC.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\FeZoX\\Desktop\\Car Sharing MVC\\Car Sharing MVC\\wwwroot\\css\\CarDetails.css",
+      "PackagePath": "staticwebassets\\css\\CarDetails.css"
+    },
+    {
       "Id": "C:\\Users\\FeZoX\\Desktop\\Car Sharing MVC\\Car Sharing MVC\\wwwroot\\css\\CarSharingIndex.css",
       "PackagePath": "staticwebassets\\css\\CarSharingIndex.css"
     },

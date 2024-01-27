@@ -1,38 +1,96 @@
 ﻿@model CarSharingApplication.DataTransferObjects.ShowCarSharingProfileModelObject
-
 @{
-    ViewData["Title"] = "Details";
+    var lastImage = Model.Images.Last();
 }
+<!-- Your HTML without body, header, and container elements -->
+<link rel="stylesheet" href="/css/CarDetails.css">
+<!-- Your HTML file -->
+<!DOCTYPE html>
 
+<html lang="en">
 <head>
-    <!-- Other head tags, if any -->
-    <link rel="stylesheet" href="/css/CarSharingIndex.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/CarDetails.css">
+    <title>Your Page Title</title>
 </head>
 
-<h1>Car Details</h1>
+<body style="backdrop-filter: blur(10px); background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('@Url.Action("GetIndexImage", "CarSharing", new { imageId = lastImage?.Id })') center; background-size: cover;">
+    <div class="gradient-overlay">
+        <div class="car-details-container">
+           
+            <div class="car-details-up">
+                <div class="Title-Back">
+                    <div class="Global-title"></div>
+                    <h1 class="text-center text-white">@Model.Name</h1>
+                    <div class="GoBack text-white">
+                        <a class="btn btn-outline-secondary" asp-action="Index">X</a>
+                    </div>  
+                </div>    
+            </div>
+            <div class="image-description">
+                <div class="lastimage-carinfor">
+                    <div class="last-image-container">
+                        @if (Model.Images.Any())
+                        {
+                            <img src="@Url.Action("GetDetailsImage", "CarSharing", new { imageId = lastImage?.Id })" alt="@lastImage.Name" class="last-image" width="600" height="400">
+                            <div class="car-info">
+                                <h4>Cost: @Model.PricePerDay @Model.ValueMoney/Day</h4>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <div class="Car-description">
+                    <h2>Description</h2>
+                    <p>@Model.Description</p>
+                </div>
+            </div>
 
-<div class="row justify-content-center">
-    <div class="card position-relative">
-        <div class="card-overlay"></div>
-        <div class="card-body text-white">
-            <h5 class="card-title">@Model.Name</h5>
-            <h6 class="card-subtitle mb-1">@Model.PricePerDay @Model.ValueMoney/Day</h6>
+            <div class="Characteristic-carLocationConinfo">
+                <div class="Characteristics">
+                    <h2>Characteristics</h2>
+                    <h5>Engine:</h5><h6> @Model.Characteristics?.Engine</h6>
+                    <h5>Color:</h5><h6> @Model.Characteristics?.Color</h6>
+                    <h5>Rims:</h5><h6> @Model.Characteristics?.Rims</h6>
+                    <h5>Upholstery:</h5><h6> @Model.Characteristics?.Upholstery</h6>
+                </div>
+                <div class="carLocation-conInfo">
+                    <div class="car-location">
+                        <h2>Location</h2>
+                        <h5>Country:</h5><h6>@Model.Coutry</h6>
+                        <h5>City:</h5><h6>@Model.City</h6>
+                    </div>
+                    <div class="contact-info">
+                        <h2>Contact Information</h2>
+                        <h5>Contact Number:</h5><h6>@Model.ContactNumber</h6>
+                    </div>
+                </div>
+            </div>
 
-            @foreach (var image in Model.Images)
-            {
-                <img class="card-image rounded-circle w-100" src="@Url.Action("GetDetailsImage", "CarSharing", new { imageId = image.Id })" alt="@image.Name" style="width: 340px; height: 190px;">
-            }
+            
+           
 
-            <div class="mt-4 bottom-0 w-100 d-flex flex-column">
-                <p class="card-text">Country: @Model.Coutry</p>
-                <p class="card-text">City: @Model.City</p>
-                <p class="card-subtitle">Contact number: @Model.ContactNumber</p>
+            
 
-                <div class="d-flex justify-content-between mt-3">
-                    <a class="btn btn-primary" asp-controller="CarSharing" asp-action="Details" asp-route-Id="@Model.Id">Details</a>
-                    <a class="btn btn-outline-secondary">Edit</a>
+           
+
+            <div class="car-images">
+                <h2>Photos</h2>
+                <div class="image-gallery">
+                    @foreach (var image in Model.Images)
+                    {
+                        <img src="@Url.Action("GetDetailsImage", "CarSharing", new { imageId = image.Id })" alt="@image.Name" class="detail-image" width="300" height="200">
+                    }
                 </div>
             </div>
         </div>
     </div>
-</div>
+</body>
+</html>
+
+
+
+
+
+
+

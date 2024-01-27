@@ -16,7 +16,7 @@ namespace CarSharingApplication.CarSharing.Commands
             RuleFor(c => c.Name)
                 .NotEmpty()
                 .MinimumLength(2).WithMessage("Name should have atleast 2 characters")
-                .MaximumLength(20).WithMessage("Name should have maximum 20 characters");
+                .MaximumLength(40).WithMessage("Name should have maximum 40 characters");
                
             RuleFor(c => c.Description)
                .NotEmpty().WithMessage("Please Enter Description");

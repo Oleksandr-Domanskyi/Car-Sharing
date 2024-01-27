@@ -24,7 +24,7 @@
             item.City = "Rzeszów";
             item.ContactNumber = "+48000000";
         }
-        <div class="card m-3 position-relative" style="width: 25rem; height: 30rem; position: relative; overflow: hidden; background: url('@Url.Action("GetImage", "CarSharing", new { imageId = firstImage?.Id })') center; background-size: cover;">
+        <div class="card m-3 position-relative" style="width: 25rem; height: 30rem; position: relative; overflow: hidden; background: url('@Url.Action("GetIndexImage", "CarSharing", new { imageId = firstImage?.Id })') center; background-size: cover;">
             <div class="card-overlay"></div>
             <div class="card-body text-white">
                 <h5 class="card-title">@item.Name</h5>

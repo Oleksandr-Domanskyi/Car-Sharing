@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ogvjBTQQDpgQoR8OOHP0rZrdE/zIU5XFGJeYXuIh/dg=",
+  "Hash": "mYvdzrSGQFmIuGPu2iPDvmpgQ46Fs0U/hRUzhNT2ezw=",
   "Source": "Car Sharing MVC",
   "BasePath": "_content/Car Sharing MVC",
   "Mode": "Default",
@@ -91,6 +91,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\FeZoX\\Desktop\\Car Sharing MVC\\Car Sharing MVC\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\Car Sharing MVC.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\FeZoX\\Desktop\\Car Sharing MVC\\Car Sharing MVC\\wwwroot\\css\\CarDetails.css",
+      "SourceId": "Car Sharing MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\FeZoX\\Desktop\\Car Sharing MVC\\Car Sharing MVC\\wwwroot\\",
+      "BasePath": "_content/Car Sharing MVC",
+      "RelativePath": "css/CarDetails.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\CarDetails.css"
     },
     {
       "Identity": "C:\\Users\\FeZoX\\Desktop\\Car Sharing MVC\\Car Sharing MVC\\wwwroot\\css\\CarSharingIndex.css",
