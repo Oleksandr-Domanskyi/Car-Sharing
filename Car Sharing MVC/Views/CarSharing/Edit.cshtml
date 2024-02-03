@@ -1,0 +1,100 @@
+﻿@using CarSharingDomain.DomainModels.Enums
+@model CarSharingApplication.DataTransferObjects.EditCarSharingProfileModelObject
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>EditCarSharingProfileModelObject</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Id" class="control-label"></label>
+                <input asp-for="Id" class="form-control" />
+                <span asp-validation-for="Id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PricePerDay" class="control-label"></label>
+                <input asp-for="PricePerDay" class="form-control" />
+                <span asp-validation-for="PricePerDay" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Coutry" class="control-label"></label>
+                <select asp-for="Coutry" class="form-control">
+                    @foreach (var country in Enum.GetValues(typeof(Countries)))
+                    {
+                        <option value="@country">@country</option>
+                    }
+                </select>
+                <span asp-validation-for="Coutry" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="City" class="control-label"></label>
+                <input asp-for="City" class="form-control" />
+                <span asp-validation-for="City" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ContactNumber" class="control-label"></label>
+                <input asp-for="ContactNumber" class="form-control" />
+                <span asp-validation-for="ContactNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ValueMoney" class="control-label"></label>
+                <select asp-for="ValueMoney" class="form-control">
+                    @foreach (var valueMoney in Enum.GetValues(typeof(ValueMoney)))
+                    {
+                        <option value="@valueMoney">@valueMoney</option>
+                    }
+                </select>
+                <span asp-validation-for="ValueMoney" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Characteristics!.Engine" class="control-label"></label>
+                <input asp-for="Characteristics!.Engine" class="form-control" />
+                <span asp-validation-for="Characteristics!.Engine" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Characteristics!.Color" class="control-label"></label>
+                <input asp-for="Characteristics!.Color" class="form-control" />
+                <span asp-validation-for="Characteristics!.Color" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Characteristics!.Rims" class="control-label"></label>
+                <input asp-for="Characteristics!.Rims" class="form-control" />
+                <span asp-validation-for="Characteristics!.Rims" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Characteristics!.Upholstery" class="control-label"></label>
+                <input asp-for="Characteristics!.Upholstery" class="form-control" />
+                <span asp-validation-for="Characteristics!.Upholstery" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

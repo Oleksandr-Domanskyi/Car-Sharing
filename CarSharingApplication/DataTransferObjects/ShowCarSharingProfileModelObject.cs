@@ -15,6 +15,7 @@ namespace CarSharingApplication.DataTransferObjects
         public Guid Id { get; set; }
         public string Name { get; set; } = default!;
         public string? Description { get; set; }
+
         public CarChatacteristics? Characteristics { get; set; } = default;
         public decimal? PricePerDay { get; set; }
         public List<Image> Images { get; set; } = default!;

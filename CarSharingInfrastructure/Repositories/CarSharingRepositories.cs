@@ -32,12 +32,14 @@ namespace CarSharingInfrastructure.Repositories
   
         public async Task<CarProfileModel?> GetByName(Guid id)
             =>await _dbContext.CarProfileModels.Include(img=>img.Image).FirstOrDefaultAsync(Enteties => Enteties.Id == id);
-
-
+        public async Task SaveChanges()
+            => await _dbContext.SaveChangesAsync();
+       
         //Images Repositories
 
         public async Task<Image?> GetImageById(Guid imageId)
             => await _dbContext.Images.FirstOrDefaultAsync(Enteties => Enteties.Id == imageId);
-       
+
+        
     }
 }

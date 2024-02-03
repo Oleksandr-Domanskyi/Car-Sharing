@@ -1,4 +1,4 @@
-﻿using CarSharingApplication.CarSharing.Commands;
+﻿using CarSharingApplication.CarSharing.Commands.CreateCarSharing;
 using CarSharingApplication.CarSharing.Queries.GetAllCarSharing;
 using CarSharingApplication.Mapping;
 using FluentValidation;

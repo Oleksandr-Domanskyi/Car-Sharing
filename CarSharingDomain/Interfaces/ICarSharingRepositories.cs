@@ -17,5 +17,7 @@ namespace CarSharingDomain.Interfaces
         Task<Image?> GetImageById(Guid imageId);
 
         Task Create (CarProfileModel model);
+
+        Task SaveChanges();
     }
 }

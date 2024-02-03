@@ -1,6 +1,4 @@
-﻿/* CarDetails.css */
-/* Adjust the styles as needed */
-
+﻿
 .body {
     position: relative;
     overflow: hidden;
@@ -31,10 +29,7 @@
 }
 
 
-/* CarDetails.css */
-/* Adjust the styles as needed */
 
-/* Your existing styles */
 
 .image-description {
     display: flex;
@@ -49,9 +44,7 @@
     align-items: center;
 }
 
-/* Your existing styles */
 
-/* Your existing styles */
 
 .last-image {
     width: 600px;
@@ -89,7 +82,7 @@
     display: block;
 }
 
-/* Additional styling for each section if needed */
+
 
 
 .Title-Back {
@@ -112,6 +105,6 @@
     text-decoration: none; /* Optional: remove underline */
 }
 
-/* Additional styling for each element if needed */
+
 
 
