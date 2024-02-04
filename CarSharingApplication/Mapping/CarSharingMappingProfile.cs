@@ -4,7 +4,8 @@ using CarSharingDomain.DomainModels;
 using CarSharingApplication.Handler.ImageHandler;
 using CarSharingDomain.DomainModels.Enums;
 using System.Linq;
-using CarSharingApplication.CarSharing.Commands.EditCarSharing;
+using Microsoft.AspNetCore.Http;
+using CarSharingApplication.CarSharing.CarSharingProfileCommands.Commands.EditCarSharing;
 
 namespace CarSharingApplication.Mapping
 {
@@ -48,7 +49,9 @@ namespace CarSharingApplication.Mapping
                 .ForMember(dest => dest.ContactNumber, opt => opt.MapFrom(src => src.CarContactDetails.ContactNumber))
                 .ForMember(dest => dest.ValueMoney, opt => opt.MapFrom(src => src.CarContactDetails.ValueMoney.ToString()));
 
-            CreateMap<ShowCarSharingProfileModelObject,EditCarSharingCommand>();
+            CreateMap<ShowCarSharingProfileModelObject, EditCarSharingCommand>()
+                .ForMember(dest => dest.ExistingImages, opt => opt.MapFrom(src => src.Images))
+                .ForMember(dest => dest.NewImages, opt => opt.MapFrom(src => new List<IFormFile>()));
         }
     }
 }

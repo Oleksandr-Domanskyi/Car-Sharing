@@ -10,7 +10,7 @@ namespace CarSharingApplication.Handler.ImageHandler
 {
     public static class ImageHandler
     {
-        private static byte[] GetBytesFromIFormFile(IFormFile file)
+        public static byte[] GetBytesFromIFormFile(IFormFile file)
         {
             using (var memoryStream = new MemoryStream())
             {
@@ -28,5 +28,6 @@ namespace CarSharingApplication.Handler.ImageHandler
                 DataFile = GetBytesFromIFormFile(image)
             }).ToList();
         }
+      
     }
 }

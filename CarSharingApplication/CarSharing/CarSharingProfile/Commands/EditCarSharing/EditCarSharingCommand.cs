@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarSharingApplication.CarSharing.Commands.EditCarSharing
+namespace CarSharingApplication.CarSharing.CarSharingProfileCommands.Commands.EditCarSharing
 {
-    public class EditCarSharingCommand:EditCarSharingProfileModelObject,IRequest
+    public class EditCarSharingCommand : EditCarSharingProfileModelObject, IRequest
     {
     }
 }

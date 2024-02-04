@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 
 namespace CarSharingApplication.DataTransferObjects
 {
@@ -16,7 +17,10 @@ namespace CarSharingApplication.DataTransferObjects
         public string? Description { get; set; }
         public CarChatacteristics? Characteristics { get; set; } = default;
         public decimal PricePerDay { get; set; }
-        public List<Image> Images { get; set; } = default!;
+       
+        // Images
+        public List<Image>? ExistingImages { get; set; }
+        public List<IFormFile>? NewImages { get; set; }
 
         //Contact Details
         public string? Coutry { get; set; }

@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarSharingApplication.CarSharing.Commands.CreateCarSharing
+namespace CarSharingApplication.CarSharing.CarSharingProfileCommands.Commands.CreateCarSharing
 {
     public class CreateCarSharingCommandHandler : IRequestHandler<CreateCarSharingCommand>
     {

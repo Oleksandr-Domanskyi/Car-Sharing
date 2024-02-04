@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarSharingApplication.CarSharing.Queries.GetAllCarSharing
+namespace CarSharingApplication.CarSharing.CarSharingProfileCommands.Queries.GetAllCarSharing
 {
     public class GetAllCarSharingQueryHandler : IRequestHandler<GetAllCarSharingQuery, IEnumerable<ShowCarSharingProfileModelObject>>
     {

@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using CarSharingApplication.DataTransferObjects;
+using CarSharingApplication.Handler.ImageHandler;
 using CarSharingApplication.Mapping;
 using CarSharingDomain.DomainModels;
 using CarSharingDomain.DomainModels.Enums;
@@ -11,14 +12,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarSharingApplication.CarSharing.Commands.EditCarSharing
+namespace CarSharingApplication.CarSharing.CarSharingProfileCommands.Commands.EditCarSharing
 {
     public class EditCarSharingCommandHandler : IRequestHandler<EditCarSharingCommand>
     {
         private readonly ICarSharingRepositories _carSharingRepositories;
         private readonly IMapper _mapper;
 
-        public EditCarSharingCommandHandler(ICarSharingRepositories carSharingRepositories,IMapper mapper)
+        public EditCarSharingCommandHandler(ICarSharingRepositories carSharingRepositories, IMapper mapper)
         {
             _carSharingRepositories = carSharingRepositories;
             _mapper = mapper;
@@ -30,6 +31,9 @@ namespace CarSharingApplication.CarSharing.Commands.EditCarSharing
             {
                 return Unit.Value;
             }
+            var NewImagesParsing = ImageHandler.MapImages(request.NewImages!);
+
+            CarSharing.Image.AddRange(NewImagesParsing);
             CarSharing.PricePerDay = request.PricePerDay;
             CarSharing.Description = request.Description;
             CarSharing.Name = request.Name;
@@ -41,7 +45,7 @@ namespace CarSharingApplication.CarSharing.Commands.EditCarSharing
 
             CarSharing.CarContactDetails.ContactNumber = request.ContactNumber;
             CarSharing.CarContactDetails.City = request.City;
-            CarSharing.CarContactDetails.Coutry =  request.Coutry != null ? Enum.Parse<Countries>(request.Coutry, true) : null;
+            CarSharing.CarContactDetails.Coutry = request.Coutry != null ? Enum.Parse<Countries>(request.Coutry, true) : null;
             CarSharing.CarContactDetails.ValueMoney = Enum.Parse<ValueMoney>(request.ValueMoney.ToString()!, true);
 
 

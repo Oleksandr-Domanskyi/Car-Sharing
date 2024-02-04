@@ -8,19 +8,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarSharingApplication.CarSharing.Queries.GetByNameCarSharing
+namespace CarSharingApplication.CarSharing.CarSharingProfileCommands.Queries.GetByNameCarSharing
 {
-    public class GetByNameCarSharingQueryHandler : IRequestHandler<GetByNameCarSharingQuery, ShowCarSharingProfileModelObject>
+    public class GetByIdCarSharingQueryHandler : IRequestHandler<GetByIdCarSharingQuery, ShowCarSharingProfileModelObject>
     {
         private readonly ICarSharingRepositories _carSharingRepositories;
         private readonly IMapper _mapper;
 
-        public GetByNameCarSharingQueryHandler(ICarSharingRepositories carSharingRepositories, IMapper mapper)
+        public GetByIdCarSharingQueryHandler(ICarSharingRepositories carSharingRepositories, IMapper mapper)
         {
             _carSharingRepositories = carSharingRepositories;
             _mapper = mapper;
         }
-        public async Task<ShowCarSharingProfileModelObject> Handle(GetByNameCarSharingQuery request, CancellationToken cancellationToken)
+        public async Task<ShowCarSharingProfileModelObject> Handle(GetByIdCarSharingQuery request, CancellationToken cancellationToken)
         {
             var CarSharing = await _carSharingRepositories.GetByName(request.Id);
             var dto = _mapper.Map<ShowCarSharingProfileModelObject>(CarSharing);

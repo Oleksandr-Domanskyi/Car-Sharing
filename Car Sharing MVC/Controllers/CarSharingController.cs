@@ -1,13 +1,14 @@
 ﻿using AutoMapper;
-using CarSharingApplication.CarSharing.Commands.CreateCarSharing;
-using CarSharingApplication.CarSharing.Commands.EditCarSharing;
-using CarSharingApplication.CarSharing.Queries.GetAllCarSharing;
-using CarSharingApplication.CarSharing.Queries.GetByNameCarSharing;
+using CarSharingApplication.CarSharing.CarSharingProfileCommands.Queries.GetAllCarSharing;
+using CarSharingApplication.CarSharing.CarSharingProfileCommands.Queries.GetByNameCarSharing;
 using CarSharingApplication.DataTransferObjects;
+using CarSharingDomain.DomainModels;
 using CarSharingDomain.Interfaces;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-
+using CarSharingApplication.CarSharing.CarSharingProfileCommands.Commands.CreateCarSharing;
+using CarSharingApplication.CarSharing.CarSharingProfileCommands.Commands.EditCarSharing;
+using CarSharingApplication.CarSharing.CarSharingImage.Commands;
 namespace Car_Sharing_MVC.Controllers
 {
     public class CarSharingController : Controller
@@ -45,7 +46,7 @@ namespace Car_Sharing_MVC.Controllers
         [Route("CarSharing/{Id}/Details")]
         public async Task<IActionResult> Details(Guid Id)
         {
-            var dto = await _mediator.Send(new GetByNameCarSharingQuery(Id));
+            var dto = await _mediator.Send(new GetByIdCarSharingQuery(Id));
             return View(dto);
         }
          [HttpGet]
@@ -65,18 +66,25 @@ namespace Car_Sharing_MVC.Controllers
         [Route("CarSharing/{Id}/Edit")]
         public async Task<IActionResult> Edit(Guid Id)
         {
-            var dto = await _mediator.Send(new GetByNameCarSharingQuery(Id));
+            var dto = await _mediator.Send(new GetByIdCarSharingQuery(Id));
             EditCarSharingCommand command =_mapper.Map<EditCarSharingCommand>(dto);
             return View(command);
         }
         [HttpPost]
         [Route("CarSharing/{Id}/Edit")]
-        public async Task<IActionResult> Edit(Guid id , EditCarSharingCommand command)
+        public async Task<IActionResult> Edit(Guid id, [FromForm] EditCarSharingCommand command, [FromForm] List<IFormFile> NewImages, [FromForm] List<Image> ExistingImages)
         {
+           
             await _mediator.Send(command);
-            return RedirectToAction(nameof(Details));
+            return RedirectToAction("Details", "CarSharing", new { Id = id });
         }
-
+        [HttpPost]
+        public async Task<IActionResult>RemoveImageinEdit(Guid imageId)
+        {
+            await _mediator.Send(new ImageDeleteCommand(imageId));
+            return Json(new { success = true });
+        }
+   
         public IActionResult Create()
         {
             return View();

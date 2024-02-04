@@ -33,7 +33,7 @@
                     <div class="last-image-container">
                         @if (Model.Images.Any())
                         {
-                            <img src="@Url.Action("GetDetailsImage", "CarSharing", new { imageId = lastImage?.Id })" alt="@lastImage.Name" class="last-image" width="600" height="400">
+                            <img src="@Url.Action("GetDetailsImage", "CarSharing", new { imageId = lastImage?.Id })" alt="@lastImage!.Name" class="last-image" width="600" height="400">
                             <div class="car-info">
                                 <h4>Cost: @Model.PricePerDay @Model.ValueMoney/Day</h4>
                             </div>

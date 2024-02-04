@@ -4,6 +4,35 @@
 @{
     ViewData["Title"] = "Edit";
 }
+<style>
+    .image-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px; 
+    }
+
+        .image-container img {
+            max-width: 200px; 
+            height: auto; 
+        }
+
+        .image-container .image-item {
+            position: relative;
+            margin-bottom: 10px;
+        }
+
+    .delete-button {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        background-color: #ff0000;
+        color: #ffffff;
+        border: none;
+        padding: 5px;
+        cursor: pointer;
+        font-size: 14px;
+    }
+</style>
 
 <h1>Edit</h1>
 
@@ -11,13 +40,8 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Edit">
+        <form asp-action="Edit" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Id" class="control-label"></label>
-                <input asp-for="Id" class="form-control" />
-                <span asp-validation-for="Id" class="text-danger"></span>
-            </div>
             <div class="form-group">
                 <label asp-for="Name" class="control-label"></label>
                 <input asp-for="Name" class="form-control" />
@@ -84,16 +108,56 @@
                 <input asp-for="Characteristics!.Upholstery" class="form-control" />
                 <span asp-validation-for="Characteristics!.Upholstery" class="text-danger"></span>
             </div>
+            <div>
+                <label asp-for="NewImages">Images</label>
+                <input asp-for="NewImages" type="file" multiple />
+                <span asp-validation-for="NewImages" class="text-danger"></span>
+            </div>
+            <div class="form-group image-container">
+                @for (var i = 0; i < Model.ExistingImages!.Count; i++)
+                {
+                    <div class="image-item">
+                        <img src="@Url.Action("GetDetailsImage", "CarSharing", new { imageId = Model.ExistingImages[i].Id })" alt="@Model.ExistingImages[i].Name" />
+                        <input type="hidden" name="ExistingImages[@i].Id" value="@Model.ExistingImages[i].Id" />
+                        <button type="button" style="display: @(Model.ExistingImages.Count == 1 ? "none" : "inline-block")" class="delete-button" onclick="removeImage('@Model.ExistingImages[i].Id')">Delete</button>
+                    </div>
+                }
+                
+            </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
+            <script>
+                function removeImage(imageId) {
+                    $.ajax({
+                        type: "POST",
+                        url: "@Url.Action("RemoveImageinEdit", "CarSharing")",
+                        data: { imageId: imageId },
+                        success: function (result) {
+                            if (result.success) {
+                                location.reload(true);
+                            } else {
+                                console.log("Error removing image");
+                            }
+                        },
+                        error: function (xhr, status, error) {
+                            console.log("Error removing image");
+                            console.log(xhr.responseText); 
+                        }
+                    });
+                }
+
+            </script>
+
         </form>
     </div>
 </div>
 
+
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

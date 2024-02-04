@@ -6,13 +6,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarSharingApplication.CarSharing.Queries.GetByNameCarSharing
+namespace CarSharingApplication.CarSharing.CarSharingProfileCommands.Queries.GetByNameCarSharing
 {
-    public class GetByNameCarSharingQuery:IRequest<ShowCarSharingProfileModelObject>
+    public class GetByIdCarSharingQuery : IRequest<ShowCarSharingProfileModelObject>
     {
         public Guid Id { get; set; }
 
-        public GetByNameCarSharingQuery(Guid id)
+        public GetByIdCarSharingQuery(Guid id)
         {
             Id = id;
         }

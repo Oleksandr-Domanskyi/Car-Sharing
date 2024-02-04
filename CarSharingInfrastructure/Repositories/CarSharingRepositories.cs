@@ -40,6 +40,16 @@ namespace CarSharingInfrastructure.Repositories
         public async Task<Image?> GetImageById(Guid imageId)
             => await _dbContext.Images.FirstOrDefaultAsync(Enteties => Enteties.Id == imageId);
 
-        
+        public async Task DeleteImageById(Guid id)
+        {
+            var image = await _dbContext.Images.FirstOrDefaultAsync(src => src.Id == id);
+            if (image == null)
+            {
+                throw new ArgumentException(message:"Some problem with Repositories");
+            }
+            _dbContext.Images.Remove(image);
+            await _dbContext.SaveChangesAsync();
+           
+        }
     }
 }
