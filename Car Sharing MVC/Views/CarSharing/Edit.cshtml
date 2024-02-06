@@ -126,7 +126,9 @@
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
+                <button type="button" class="btn btn-danger" onclick="DeleteCarSharing('@Model.Id')">Delete</button>
             </div>
+
             <script>
                 function removeImage(imageId) {
                     $.ajax({
@@ -146,7 +148,20 @@
                         }
                     });
                 }
-
+                function DeleteCarSharing(Id) {
+                    $.ajax({
+                        type: "DELETE",
+                        url: "@Url.Action("Delete", "CarSharing")",
+                        data: { Id: Id },
+                        success: function (response) {
+                            window.location.href = "@Url.Action("Index", "CarSharing")";
+                        },
+                        error: function (xhr, status, error) {
+                            console.log("Error deleting car sharing");
+                            console.log(xhr.responseText);
+                        }
+                    });
+                }
             </script>
 
         </form>

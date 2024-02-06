@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using CarSharingApplication.CarSharing.CarSharingProfileCommands.Commands.CreateCarSharing;
 using CarSharingApplication.CarSharing.CarSharingProfileCommands.Commands.EditCarSharing;
 using CarSharingApplication.CarSharing.CarSharingImage.Commands;
+using CarSharingApplication.CarSharing.CarSharingProfile.Commands.DelateCarSharing;
 namespace Car_Sharing_MVC.Controllers
 {
     public class CarSharingController : Controller
@@ -82,6 +83,12 @@ namespace Car_Sharing_MVC.Controllers
         public async Task<IActionResult>RemoveImageinEdit(Guid imageId)
         {
             await _mediator.Send(new ImageDeleteCommand(imageId));
+            return Json(new { success = true });
+        }
+        [HttpDelete]
+        public async Task<IActionResult>Delete(Guid Id)
+        {
+            await _mediator.Send(new DeleteCarSharingCommand(Id));
             return Json(new { success = true });
         }
    

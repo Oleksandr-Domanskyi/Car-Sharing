@@ -21,5 +21,7 @@ namespace CarSharingDomain.Interfaces
         Task SaveChanges();
 
         Task DeleteImageById(Guid id);
+
+        Task DeleteCarSharing(Guid id);
     }
 }

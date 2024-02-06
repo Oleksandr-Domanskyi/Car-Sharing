@@ -1,53 +1,55 @@
 ﻿@model IEnumerable<CarSharingApplication.DataTransferObjects.ShowCarSharingProfileModelObject>
 
-@{
-    ViewData["Title"] = "Index";
-}
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <!-- Другие теги в head, если они есть -->
-    <link rel="stylesheet" href="/css/CarSharingIndex.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+    <link rel="stylesheet" href="/css/CarSharingIndex.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
 </head>
-
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<div class="row justify-content-center">
-    @foreach (var item in Model)
-    {
-        var firstImage = item.Images.LastOrDefault(i => i != null);
-        if (item.Coutry == null || item.City == null || item.ContactNumber == null)
+<body>
+    <div class="container text-center">
+        <h1 class="" text-center">Car Menu</h1>
+    </div>
+    <div class="Count-buttonCreate">
+        <h3>@Model.Count() products available</h3>
+        <button class="custom-button">
+            <a asp-action="Create">Create New Ads</a>
+        </button>
+    </div>
+    
+    <div class="row justify-content-center">
+        @foreach (var item in Model)
         {
-            item.Coutry = "Poland";
-            item.City = "Rzeszów";
-            item.ContactNumber = "+48000000";
-        }
-        <div class="card m-3 position-relative" style="width: 25rem; height: 30rem; position: relative; overflow: hidden; background: url('@Url.Action("GetIndexImage", "CarSharing", new { imageId = firstImage?.Id })') center; background-size: cover;">
-            <div class="card-overlay"></div>
-            <div class="card-body text-white">
-                <h5 class="card-title">@item.Name</h5>
-                <h6 class="card-subtitle mb-1">@item.PricePerDay @item.ValueMoney/Day</h6>
-                <img class="card-image rounded-circle w-100" src="@Url.Action("GetIndexImage", "CarSharing", new { imageId = firstImage?.Id })" alt="@item.Name" style="width: 340px; height: 190px;">
-
-                <div class="mt-4 bottom-0 w-100 d-flex flex-column">
-                    <p class="card-text">Country: @item.Coutry</p>
-                    <p class="card-text">City: @item.City</p>
-                    <p class="card-subtitle">Contact number: @item.ContactNumber </p>
-
-                    <div class="d-flex justify-content-between mt-3">
-                        <a class="btn btn-primary" asp-controller="CarSharing" asp-action="Details", asp-route-Id ="@item.Id">Details</a>
-                        <a class="btn btn-outline-secondary">Edit</a>
+            var firstImage = item.Images.LastOrDefault(i => i != null);
+            if (item.Coutry == null || item.City == null || item.ContactNumber == null)
+            {
+                item.Coutry = "Poland";
+                item.City = "Rzeszów";
+                item.ContactNumber = "+48000000";
+            }
+            <div class="card m-3 position-relative" style="width: 25rem; height: 30rem; position: relative; overflow: hidden; background: url('@Url.Action("GetIndexImage", "CarSharing", new { imageId = firstImage?.Id })') center; background-size: cover;">
+                <div class="card-overlay"></div>
+                <div class="card-body text-white">
+                    <h5 class="card-title">@item.Name</h5>
+                    <h6 class="card-subtitle mb-1">@item.PricePerDay @item.ValueMoney/Day</h6>
+                    <img class="card-image rounded-circle w-100" src="@Url.Action("GetIndexImage", "CarSharing", new { imageId = firstImage?.Id })" alt="@item.Name" style="width: 340px; height: 190px;">
+                    <div class="mt-4 bottom-0 w-100 d-flex flex-column">
+                        <p class="card-text">Country: @item.Coutry</p>
+                        <p class="card-text">City: @item.City</p>
+                        <p class="card-subtitle">Contact number: @item.ContactNumber </p>
+                        <div class="d-flex justify-content-between mt-3">
+                            <a class="btn btn-primary" asp-controller="CarSharing" asp-action="Details" asp-route-Id="@item.Id">Details</a>
+                            <a class="btn btn-outline-secondary" asp-controller="CarSharing" asp-action="Edit" asp-route-Id="@item.Id">Edit</a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    }
-
-</div>
-
-
-
-
-
+        }
+    </div>
+    <script src="/js/CarSharingIndex.js"></script>
+</body>
+</html>

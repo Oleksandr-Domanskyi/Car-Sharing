@@ -32,10 +32,19 @@ namespace CarSharingInfrastructure.Repositories
   
         public async Task<CarProfileModel?> GetByName(Guid id)
             =>await _dbContext.CarProfileModels.Include(img=>img.Image).FirstOrDefaultAsync(Enteties => Enteties.Id == id);
-        public async Task SaveChanges()
-            => await _dbContext.SaveChangesAsync();
-       
-        //Images Repositories
+
+        public async Task DeleteCarSharing(Guid id)
+        {
+            var Domain = await _dbContext.CarProfileModels.Include(img=>img.Image).FirstOrDefaultAsync(src=>src.Id == id);
+            if (Domain == null)
+            {
+                throw new ArgumentNullException("we don`t have this object in database");
+            }
+            _dbContext.Remove(Domain);
+            await _dbContext.SaveChangesAsync();
+        }       
+            
+            //Images Repositories
 
         public async Task<Image?> GetImageById(Guid imageId)
             => await _dbContext.Images.FirstOrDefaultAsync(Enteties => Enteties.Id == imageId);
@@ -45,11 +54,17 @@ namespace CarSharingInfrastructure.Repositories
             var image = await _dbContext.Images.FirstOrDefaultAsync(src => src.Id == id);
             if (image == null)
             {
-                throw new ArgumentException(message:"Some problem with Repositories");
+                throw new ArgumentException(message: "we don`t have this image in database");
             }
             _dbContext.Images.Remove(image);
-            await _dbContext.SaveChangesAsync();
-           
+            await _dbContext.SaveChangesAsync();         
         }
+
+        // Optional
+
+        public async Task SaveChanges()
+             => await _dbContext.SaveChangesAsync();
+
+
     }
 }
