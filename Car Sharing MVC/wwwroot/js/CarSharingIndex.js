@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const backgroundUrl = 'https://c.pxhere.com/photos/67/79/garage_parking_parking_lot_underground_the_wine_cellar_dungeon-649589.jpg!d';
+    const backgroundUrl = 'https://img5.goodfon.ru/wallpaper/nbig/0/44/lamborghini-fon-mashina.jpg';
     const timestamp = new Date().getTime(); // Получаем текущее время в миллисекундах
     const img = new Image();
     img.src = `${backgroundUrl}?timestamp=${timestamp}`; // Добавляем случайный параметр в URL

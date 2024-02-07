@@ -1,0 +1,83 @@
+﻿body {
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    transition: background-image 1s ease-in-out;
+    height: 100vh;
+    color: white;
+    position: relative; /* Добавляем относительное позиционирование для body */
+}
+
+.GlobalTitle {
+    font-family: "Comfortaa", sans-serif;
+    padding-top: 60px;
+    margin-top: 5%;
+    text-align: center; /* Выравнивание заголовка по центру */
+}
+
+.Container {
+    max-width: 800px; /* Определение максимальной ширины контейнера */
+    margin: 0,0,5%,0; /* Выравнивание контейнера по центру */
+    padding: 0px 5% 5% 0px; /* Добавление отступов слева и справа */
+    top: 50%; /* Размещаем контейнер на верхней границе с учетом половины высоты экрана */
+    text-align: right; /* Выравнивание текста по правому краю */
+}
+
+.intro {
+    text-align: center; /* Выравнивание содержимого по центру */
+    position: absolute; /* Абсолютное позиционирование */
+    top: 50%; /* Размещаем блок по вертикали на 50% высоты экрана */
+    left: 50%; /* Размещаем блок по горизонтали на 50% ширины экрана */
+    transform: translate(-50%, 0%); /* Корректируем позицию по центру */
+    margin-top: 5%
+}
+
+.centered-button {
+    padding: 20px 50px;
+    font-size: 30px;
+    background-color: rgba(14, 82, 100, 0.5); /* Прозрачный фон с помощью RGBA */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    animation: pulse 1.5s infinite alternate;
+    position: relative; /* Добавляем относительное позиционирование для позиционирования размытого фона */
+    overflow: hidden; /* Убираем лишний контент, чтобы размытый фон не выходил за пределы кнопки */
+}
+
+    .centered-button a {
+        text-decoration: none;
+        color: inherit;
+        position: relative; /* Поднимаем текст над размытым фоном */
+        z-index: 1; /* Размещаем текст над размытым фоном */
+    }
+
+.centered-button {
+    padding: 20px 50px;
+    font-size: 30px;
+    background-color: rgba(66, 144, 161, 0.5); /* Прозрачный фон с помощью RGBA */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    animation: pulse 1.5s infinite alternate;
+    position: relative; /* Добавляем относительное позиционирование для позиционирования размытого фона */
+    overflow: hidden; /* Убираем лишний контент, чтобы размытый фон не выходил за пределы кнопки */
+    backdrop-filter: blur(10px); /* Применяем размытие к фону */
+}
+
+    .centered-button:hover {
+        animation-play-state: paused; /* Останавливаем анимацию при наведении */
+        background-color: #ffe5b4; /* Изменяем цвет фона кнопки при наведении */
+        color: #ffff; /* Изменяем цвет текста кнопки при наведении */
+    }
+
+@keyframes pulse {
+    0% {
+        transform: scale(1); /* Начальный масштаб */
+    }
+
+    100% {
+        transform: scale(1.1); /* Конечный масштаб */
+    }
+}

@@ -1,8 +1,22 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@page "/"
+@using Microsoft.AspNetCore.Components.Web
+@using Microsoft.AspNetCore.Components
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+<link rel="stylesheet" href="~/css/HomeCarSharingPage.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Protest+Revolution&display=swap" rel="stylesheet">
+
+<div class="GlobalTitle text-center">
+    <h1 class="display-4">Welcome to Car Sharing</h1>
 </div>
+<div class="Container">
+    <div class="intro">
+        <button class="centered-button">
+            <a asp-controller="CarSharing" asp-action="Index" style="text-decoration: none; color: inherit;">Let`s Starting</a>
+        </button>
+    </div>
+</div>
+
+<script src="~/js/HomeCarSharingPage.js"></script>

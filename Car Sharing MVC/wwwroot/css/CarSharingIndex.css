@@ -1,4 +1,15 @@
-﻿.card {
+﻿/* Пример анимации для плавного перехода */
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 0.5s;
+}
+
+.fade-enter, .fade-leave-to /* .fade-leave-active в V2.1.8 и выше, или .fade-leave-active в более ранних версиях */ {
+    opacity: 0;
+}
+
+
+.card {
     position: relative;
     overflow: hidden;
     width: 25rem;
@@ -45,7 +56,7 @@
     text-shadow: initial;
     margin-top: 5%;
     font-size: 60px;
-    font-family: "Audiowide", sans-serif;
+    font-family: "Comfortaa", sans-serif;
 }
 
 .container button {
@@ -55,7 +66,7 @@
 .container h3 {
     font-weight: bolder;
     color: rgb(198, 250, 250);
-    font-family: "Audiowide", sans-serif;
+    font-family: "Comfortaa", sans-serif;
 }
 .container button {
     margin-bottom: 20px;
@@ -105,6 +116,25 @@ body {
     display: flex;
     justify-content: center;
     align-items: center; /* Чтобы контейнер занимал всю высоту страницы */
+}
+/* Добавьте анимацию для плавного появления страницы */
+.page-enter {
+    opacity: 0;
+}
+
+.page-enter-active {
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+/* Добавьте анимацию для плавного исчезновения страницы */
+.page-exit {
+    opacity: 1;
+}
+
+.page-exit-active {
+    opacity: 0;
+    transition: opacity 0.5s ease;
 }
 
 

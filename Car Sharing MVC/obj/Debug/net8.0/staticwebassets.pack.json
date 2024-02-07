@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\css\\CarSharingIndex.css"
     },
     {
+      "Id": "C:\\Users\\FeZoX\\Desktop\\Car Sharing MVC\\Car Sharing MVC\\wwwroot\\css\\HomeCarSharingPage.css",
+      "PackagePath": "staticwebassets\\css\\HomeCarSharingPage.css"
+    },
+    {
       "Id": "C:\\Users\\FeZoX\\Desktop\\Car Sharing MVC\\Car Sharing MVC\\wwwroot\\css\\Navbar.css",
       "PackagePath": "staticwebassets\\css\\Navbar.css"
     },
@@ -27,6 +31,10 @@
     {
       "Id": "C:\\Users\\FeZoX\\Desktop\\Car Sharing MVC\\Car Sharing MVC\\wwwroot\\js\\CarSharingIndex.js",
       "PackagePath": "staticwebassets\\js\\CarSharingIndex.js"
+    },
+    {
+      "Id": "C:\\Users\\FeZoX\\Desktop\\Car Sharing MVC\\Car Sharing MVC\\wwwroot\\js\\HomeCarSharingPage.js",
+      "PackagePath": "staticwebassets\\js\\HomeCarSharingPage.js"
     },
     {
       "Id": "C:\\Users\\FeZoX\\Desktop\\Car Sharing MVC\\Car Sharing MVC\\wwwroot\\js\\site.js",
