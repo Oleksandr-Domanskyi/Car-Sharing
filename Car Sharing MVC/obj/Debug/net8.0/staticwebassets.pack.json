@@ -9,6 +9,10 @@
       "PackagePath": "staticwebassets\\css\\CarDetails.css"
     },
     {
+      "Id": "C:\\Users\\FeZoX\\Desktop\\Car Sharing MVC\\Car Sharing MVC\\wwwroot\\css\\CarEdit.css",
+      "PackagePath": "staticwebassets\\css\\CarEdit.css"
+    },
+    {
       "Id": "C:\\Users\\FeZoX\\Desktop\\Car Sharing MVC\\Car Sharing MVC\\wwwroot\\css\\CarSharingIndex.css",
       "PackagePath": "staticwebassets\\css\\CarSharingIndex.css"
     },
