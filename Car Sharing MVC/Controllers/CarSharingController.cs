@@ -10,6 +10,7 @@ using CarSharingApplication.CarSharing.CarSharingProfileCommands.Commands.Create
 using CarSharingApplication.CarSharing.CarSharingProfileCommands.Commands.EditCarSharing;
 using CarSharingApplication.CarSharing.CarSharingImage.Commands;
 using CarSharingApplication.CarSharing.CarSharingProfile.Commands.DelateCarSharing;
+using CarSharingApplication.CarSharing.CarSharingProfile.Queries.GetBySearchName;
 namespace Car_Sharing_MVC.Controllers
 {
     public class CarSharingController : Controller
@@ -24,11 +25,17 @@ namespace Car_Sharing_MVC.Controllers
             _carSharingRepositories = carSharingRepositories;
             _mapper = mapper;
         }
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string Search)
         {
-            var carSharingList = await _mediator.Send(new GetAllCarSharingQuery());
+            if(Search == default)
+            {
+                var carSharingList = await _mediator.Send(new GetAllCarSharingQuery());
+                return View(carSharingList);
+            }
+            var CarSharingListBySearch = await _mediator.Send(new GetBySearchNameCarSharingQuery(Search));
+            return View(CarSharingListBySearch);
 
-            return View(carSharingList);
+            
         }
         [HttpGet]
         public async Task<IActionResult> GetIndexImage(Guid imageId)

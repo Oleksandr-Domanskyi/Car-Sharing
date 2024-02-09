@@ -14,6 +14,8 @@ namespace CarSharingDomain.Interfaces
         Task<IEnumerable<CarProfileModel?>> GetAll();
         Task<CarProfileModel?> GetByName(Guid Id);
 
+        Task<IEnumerable<CarProfileModel?>> GetBySearchName(string Search);
+
         Task<Image?> GetImageById(Guid imageId);
 
         Task Create (CarProfileModel model);

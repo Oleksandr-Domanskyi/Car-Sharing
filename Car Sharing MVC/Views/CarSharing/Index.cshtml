@@ -15,6 +15,10 @@
     <div class="container text-center">
         <h1 class="" text-center">Car Menu</h1>
     </div>
+    @if (Model.Count() == default)
+    {
+        <h1>Searching not found your proposition</h1>
+    }
     <div class="Count-buttonCreate">
         <h3>@Model.Count() products available</h3>
         <button class="custom-button">
@@ -37,7 +41,7 @@
                 <div class="card-body text-white">
                     <h5 class="card-title">@item.Name</h5>
                     <h6 class="card-subtitle mb-1">@item.PricePerDay @item.ValueMoney/Day</h6>
-                    <img class="card-image rounded-circle w-100" src="@Url.Action("GetIndexImage", "CarSharing", new { imageId = firstImage?.Id })" alt="@item.Name" style="width: 340px; height: 190px;">
+                    <img class="card-image  w-100" src="@Url.Action("GetIndexImage", "CarSharing", new { imageId = firstImage?.Id })" alt="@item.Name" style="width: 340px; height: 190px;">
                     <div class="mt-4 bottom-0 w-100 d-flex flex-column">
                         <p class="card-text">Country: @item.Coutry</p>
                         <p class="card-text">City: @item.City</p>

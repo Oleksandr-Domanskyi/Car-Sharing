@@ -9,11 +9,18 @@
 }
 
 .GlobalTitle {
-    font-family: "Comfortaa", sans-serif;
+    font-family: 'Permanent Marker', cursive;
     padding-top: 60px;
     margin-top: 5%;
     text-align: center; /* Выравнивание заголовка по центру */
 }
+    .GlobalTitle::first-letter {
+        color: red; /* Любой цвет, который вы хотите применить к первой букве */
+    }
+
+    .GlobalTitle::first-line {
+        color: white; /* Любой цвет, который вы хотите применить к первому слову */
+    }
 
 .Container {
     max-width: 800px; /* Определение максимальной ширины контейнера */

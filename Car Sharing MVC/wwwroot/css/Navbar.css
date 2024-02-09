@@ -1,28 +1,42 @@
 ﻿.navbar .nav-link {
-    border: none; /* Удаление обводки */
-    transition: background-color 0.3s ease; /* Плавное изменение цвета фона при наведении */
-    margin-right: 20px; /* Увеличение расстояния между ссылками */
-    font-size: 20px; /* Увеличение размера текста ссылок */
+    border: none;
+    transition: background-color 0.3s ease;
+    margin-right: 20px;
+    font-size: 20px;
 }
 
-    .navbar .nav-link:hover {
-        background-color: rgba(0, 0, 0, 0.2); /* Затемнение кнопки при наведении */
-    }
+.navbar .nav-link:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
 .navbar {
-    background-image: url('https://c.pxhere.com/photos/67/79/garage_parking_parking_lot_underground_the_wine_cellar_dungeon-649589.jpg!d'); /* Изменение фона на изображение */
-    background-size: cover; /* Растягивание изображения на весь навбар */
+    background-image: url('https://c.pxhere.com/photos/67/79/garage_parking_parking_lot_underground_the_wine_cellar_dungeon-649589.jpg!d');
+    background-size: cover;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
-    padding: 20px; /* Добавляем больше отступов к навбару */
+    padding: 20px;
 }
+
 .navbar-brand {
-    font-size: 40px; /* Увеличиваем размер шрифта */
-    font-weight: bold; /* Делаем текст жирным */
-    margin-right: 20px; /* Устанавливаем отступ справа */
-}
-.navbar-brand {
-    margin-right: 20px; /* Добавляем отступ справа от бренда */
+    font-size: 40px;
+    font-weight: bold;
+    margin-right: 20px;
 }
 
 .navbar-nav {
-    margin-left: 30px; /* Добавляем отступ слева от ссылок */
+    margin-left: 30px;
+}
+
+/* Новые стили */
+.navbar-nav .nav-item:last-child {
+    margin-left: auto; /* Сдвиг последнего элемента (поисковой полоски) вправо */
+}
+
+.navbar-nav .nav-item form {
+    display: flex; /* Используем flexbox для выравнивания элементов формы */
+    align-items: center; /* Выравнивание элементов формы по вертикали */
+}
+
+.navbar-nav .nav-item form input[type="text"],
+.navbar-nav .nav-item form button {
+    margin: 0; /* Удаление внешних отступов у элементов формы */
 }

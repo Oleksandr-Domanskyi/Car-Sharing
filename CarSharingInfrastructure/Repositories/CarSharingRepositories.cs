@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -65,6 +66,14 @@ namespace CarSharingInfrastructure.Repositories
         public async Task SaveChanges()
              => await _dbContext.SaveChangesAsync();
 
-
+        public async Task<IEnumerable<CarProfileModel?>> GetBySearchName(string Search)
+        {
+            var DomainModel = await _dbContext.CarProfileModels.Include(src=>src.Image).Where(src => src.Name.Contains(Search)).ToListAsync();
+            if (DomainModel == null)
+            {
+                throw new ArgumentNullException($"{nameof(DomainModel)}");
+            }
+            return DomainModel;
+        }
     }
 }
