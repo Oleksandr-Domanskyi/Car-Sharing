@@ -17,7 +17,7 @@ namespace CarSharingApplication.DataTransferObjects
         public string? Description { get; set; }
 
         public CarChatacteristics? Characteristics { get; set; } = default;
-        public decimal? PricePerDay { get; set; }
+        public int? PricePerDay { get; set; }
         public List<Image> Images { get; set; } = default!;
 
         //Contact Details

@@ -180,3 +180,50 @@
 input[type="file"] {
     display: none;
 }
+.font-image-upload {
+    position: relative;
+    font-weight: 800;
+    font-size: 20px;
+    text-align: center;
+    height: 400px;
+    width: 100%;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background: none;
+    border: 2px solid #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.3s; /* Добавлено свойство перехода для opacity */
+    opacity: 0; /* Кнопка изначально невидима */
+}
+
+.Front-Image:hover .font-image-upload {
+    opacity: 1; /* Кнопка становится видимой при наведении на изображение */
+    -webkit-backdrop-filter: blur(10px); /* Размытие фона для браузеров WebKit */
+    backdrop-filter: blur(10px); /* Размытие фона для остальных браузеров */
+    z-index: 1; /* Поднимаем кнопку над изображением */
+}
+
+.font-image-upload::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.3); /* Прозрачный белый фон */
+    -webkit-backdrop-filter: blur(10px); /* Размытие фона для браузеров WebKit */
+    backdrop-filter: blur(10px); /* Размытие фона для остальных браузеров */
+    border-radius: 10px; /* Округление углов */
+    z-index: -1; /* Помещаем псевдоэлемент под контент */
+}
+.Font-Image-Button-span{
+    font-weight:800;
+    font-size:20px;
+    color:red;
+}
+
+

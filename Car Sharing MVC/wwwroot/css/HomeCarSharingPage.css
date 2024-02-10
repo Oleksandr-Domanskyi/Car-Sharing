@@ -9,7 +9,8 @@
 }
 
 .GlobalTitle {
-    font-family: 'Permanent Marker', cursive;
+    font-family: "Montserrat Alternates", sans-serif;
+    font-weight: 900;
     padding-top: 60px;
     margin-top: 5%;
     text-align: center; /* Выравнивание заголовка по центру */

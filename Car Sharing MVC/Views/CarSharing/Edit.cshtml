@@ -2,7 +2,6 @@
 @model CarSharingApplication.DataTransferObjects.EditCarSharingProfileModelObject
 @{
     var lastImage = Model.ExistingImages!.Last();
-    var Money = (int)Model.PricePerDay;
 }
 @{
     ViewData["Title"] = "Edit";
@@ -29,13 +28,23 @@
                 <div class="Name-Description-Front-Image">
 
                     <div class="Front-Image-Money-Value">
-                        <div class="Front-Image">
-                            <img src="@Url.Action("GetDetailsImage", "CarSharing", new { imageId = lastImage?.Id })" alt="@lastImage!.Name" class="last-image" width="600" height="400" style=" border-radius:20px;">
+                        <div class="Front-Image" style="position: relative;">
+                            <img src="@Url.Action("GetDetailsImage", "CarSharing", new { imageId = lastImage?.Id })" alt="@lastImage!.Name" class="last-image" width="600" height="400" style="border-radius: 20px;">
+                            <div class="Font-Image-Button" style="position: absolute; bottom: 0; left: 0; right: 0; text-align: center;">
+                                <label asp-for="PreViewImage" class="font-image-upload">
+                                    <i class="fas fa-cloud-upload-alt"></i> Change Preview Image
+                                </label>
+                                <input asp-for="PreViewImage" type="file" multiple style="display: none;">
+                                <span asp-validation-for="PreViewImage" class="Font-Image-Button-span"></span>
+                            </div>
                         </div>
+
+
+
                         <div class="Money-Value">
                             <div class="PricePerDay">
                                 <label asp-for="PricePerDay" class="control-label">Price Per Day</label>
-                                <input asp-for="@Money" class="form-control" />
+                                <input asp-for="PricePerDay" class="form-control" />
                                 <span asp-validation-for="PricePerDay" class="text-danger"></span>
                             </div>
                             <div class="Value">

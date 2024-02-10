@@ -39,7 +39,7 @@ namespace CarSharingInfrastructure.Seeders
                             Upholstery = "EKSKLUZYWNA TAPICERKA SKÓRZANA NAPPA W KOLORZE BRĄZOWYM"
                         },
                         Image = default!,
-                        PricePerDay = 200M
+                        PricePerDay = 200
                     };
                     await _dbContext.AddAsync(Mazda6_Kombi);
                     await _dbContext.SaveChangesAsync();

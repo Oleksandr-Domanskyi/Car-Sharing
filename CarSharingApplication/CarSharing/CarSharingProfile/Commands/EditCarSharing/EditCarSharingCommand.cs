@@ -10,5 +10,6 @@ namespace CarSharingApplication.CarSharing.CarSharingProfileCommands.Commands.Ed
 {
     public class EditCarSharingCommand : EditCarSharingProfileModelObject, IRequest
     {
+       
     }
 }

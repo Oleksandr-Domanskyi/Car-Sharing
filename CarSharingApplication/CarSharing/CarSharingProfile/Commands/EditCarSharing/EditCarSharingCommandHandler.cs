@@ -8,9 +8,11 @@ using CarSharingDomain.Interfaces;
 using MediatR;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 
 namespace CarSharingApplication.CarSharing.CarSharingProfileCommands.Commands.EditCarSharing
 {
@@ -27,13 +29,27 @@ namespace CarSharingApplication.CarSharing.CarSharingProfileCommands.Commands.Ed
         public async Task<Unit> Handle(EditCarSharingCommand request, CancellationToken cancellationToken)
         {
             var CarSharing = await _carSharingRepositories.GetByName(request.Id);
+            
             if (CarSharing == null)
             {
                 return Unit.Value;
             }
-            var NewImagesParsing = ImageHandler.MapImages(request.NewImages!);
+            var LastCarImage = CarSharing.Image.Last();
 
-            CarSharing.Image.AddRange(NewImagesParsing);
+            if (request.PreViewImage != null)
+            {
+                request.NewImages!.Add(request.PreViewImage!);
+                var NewImagesParsing = ImageHandler.MapImages(request.NewImages!);
+                CarSharing.Image.AddRange(NewImagesParsing);
+            }
+            else if(request.PreViewImage == null && request.NewImages!=null)
+            {
+               
+             
+                var ImagesParsing = ImageHandler.MapImages(request.NewImages!);
+                CarSharing.Image.AddRange(ImagesParsing);
+                CarSharing.Image.Add(LastCarImage);
+            }
             CarSharing.PricePerDay = request.PricePerDay;
             CarSharing.Description = request.Description;
             CarSharing.Name = request.Name;

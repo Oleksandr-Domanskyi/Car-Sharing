@@ -80,9 +80,13 @@ namespace Car_Sharing_MVC.Controllers
         }
         [HttpPost]
         [Route("CarSharing/{Id}/Edit")]
-        public async Task<IActionResult> Edit(Guid id, [FromForm] EditCarSharingCommand command, [FromForm] List<IFormFile> NewImages, [FromForm] List<Image> ExistingImages)
+        public async Task<IActionResult> Edit(Guid id, [FromForm] EditCarSharingCommand command, [FromForm] List<IFormFile>? NewImages, [FromForm] List<Image> ExistingImages, [FromForm]IFormFile PreViewImage)
         {
-           
+            if (!ModelState.IsValid)
+            {
+                return View(command);
+            }
+            command.Id = id;
             await _mediator.Send(command);
             return RedirectToAction("Details", "CarSharing", new { Id = id });
         }
