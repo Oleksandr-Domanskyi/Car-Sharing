@@ -22,7 +22,7 @@ namespace CarSharingInfrastructure.Database
         {
             modelBuilder.Entity<CarProfileModel>().OwnsOne(c => c.Characteristics);
             modelBuilder.Entity<CarProfileModel>().OwnsOne(c => c.CarContactDetails);
-            
+            modelBuilder.Entity<CarProfileModel>().OwnsOne(c => c.GlobalProfileImage);
         }
     }
 }

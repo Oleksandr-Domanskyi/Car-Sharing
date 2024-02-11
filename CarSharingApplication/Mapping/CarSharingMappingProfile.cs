@@ -32,8 +32,9 @@ namespace CarSharingApplication.Mapping
                     Coutry = src.Coutry != null ? Enum.Parse<Countries>(src.Coutry, true) : null,
                     City = src.City,
                     ContactNumber = src.ContactNumber,
-                    ValueMoney =  Enum.Parse<ValueMoney>(src.ValueMoney.ToString(), true)
+                    ValueMoney = Enum.Parse<ValueMoney>(src.ValueMoney.ToString(), true)
                 }))
+                .ForMember(dest => dest.GlobalProfileImage, opt => opt.MapFrom(src => ImageHandler.MapGlobalImages(src.GlobalProfileImage)))
                 .ForMember(dest => dest.Image, opt => opt.MapFrom(src => ImageHandler.MapImages(src.Images)));
 
 
@@ -43,6 +44,7 @@ namespace CarSharingApplication.Mapping
                 .ForMember(dest => dest.Felgi, opt => opt.MapFrom(src => src.Characteristics.Rims))
                 .ForMember(dest => dest.Tapicerka, opt => opt.MapFrom(src => src.Characteristics.Upholstery))
                 .ForMember(dest => dest.Images, opt => opt.MapFrom(src => src.Image))
+                .ForMember(dest => dest.GlobalProfileImage, opt => opt.MapFrom(src => src.GlobalProfileImage))
 
                 .ForMember(dest => dest.Coutry, opt => opt.MapFrom(src => src.CarContactDetails.Coutry.ToString()))
                 .ForMember(dest => dest.City, opt => opt.MapFrom(src => src.CarContactDetails.City))
@@ -51,7 +53,8 @@ namespace CarSharingApplication.Mapping
 
             CreateMap<ShowCarSharingProfileModelObject, EditCarSharingCommand>()
                 .ForMember(dest => dest.ExistingImages, opt => opt.MapFrom(src => src.Images))
-                .ForMember(dest => dest.NewImages, opt => opt.MapFrom(src => new List<IFormFile>()));
+                .ForMember(dest => dest.NewImages, opt => opt.MapFrom(src => new List<IFormFile>()))
+                .ForMember(dest => dest.GlobalProfileImage, opt => opt.MapFrom(src => src.GlobalProfileImage));
         }
     }
 }

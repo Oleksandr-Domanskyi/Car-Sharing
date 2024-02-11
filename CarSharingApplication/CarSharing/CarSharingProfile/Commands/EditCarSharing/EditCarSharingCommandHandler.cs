@@ -34,22 +34,19 @@ namespace CarSharingApplication.CarSharing.CarSharingProfileCommands.Commands.Ed
             {
                 return Unit.Value;
             }
-            var LastCarImage = CarSharing.Image.Last();
 
-            if (request.PreViewImage != null)
+            
+            if( request.NewImages != null)
             {
-                request.NewImages!.Add(request.PreViewImage!);
-                var NewImagesParsing = ImageHandler.MapImages(request.NewImages!);
-                CarSharing.Image.AddRange(NewImagesParsing);
-            }
-            else if(request.PreViewImage == null && request.NewImages!=null)
-            {
-               
-             
                 var ImagesParsing = ImageHandler.MapImages(request.NewImages!);
                 CarSharing.Image.AddRange(ImagesParsing);
-                CarSharing.Image.Add(LastCarImage);
             }
+            if(request.PreViewImage != null)
+            {
+                CarSharing.GlobalProfileImage = ImageHandler.MapGlobalImages(request.PreViewImage);
+            }
+            CarSharing.GlobalProfileImage = CarSharing.GlobalProfileImage;
+           
             CarSharing.PricePerDay = request.PricePerDay;
             CarSharing.Description = request.Description;
             CarSharing.Name = request.Name;

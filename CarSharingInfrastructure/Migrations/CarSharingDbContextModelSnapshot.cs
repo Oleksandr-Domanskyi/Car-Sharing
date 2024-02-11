@@ -49,9 +49,6 @@ namespace CarSharingInfrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("CarProfileId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<Guid?>("CarProfileModelId")
                         .HasColumnType("uniqueidentifier");
 
@@ -123,10 +120,38 @@ namespace CarSharingInfrastructure.Migrations
                                 .HasForeignKey("CarProfileModelId");
                         });
 
+                    b.OwnsOne("CarSharingDomain.DomainModels.GlobalProfileImage", "GlobalProfileImage", b1 =>
+                        {
+                            b1.Property<Guid>("CarProfileModelId")
+                                .HasColumnType("uniqueidentifier");
+
+                            b1.Property<byte[]>("DataFile")
+                                .HasColumnType("varbinary(max)");
+
+                            b1.Property<string>("FileType")
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.Property<Guid>("Id")
+                                .HasColumnType("uniqueidentifier");
+
+                            b1.Property<string>("Name")
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.HasKey("CarProfileModelId");
+
+                            b1.ToTable("CarProfileModels");
+
+                            b1.WithOwner()
+                                .HasForeignKey("CarProfileModelId");
+                        });
+
                     b.Navigation("CarContactDetails")
                         .IsRequired();
 
                     b.Navigation("Characteristics")
+                        .IsRequired();
+
+                    b.Navigation("GlobalProfileImage")
                         .IsRequired();
                 });
 

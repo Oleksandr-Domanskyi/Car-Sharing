@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "b5nxCoiN5qFfo3sBKg81PdtL0kLy4xR3LwuQjUjzDyo=",
+  "Hash": "8zzB6u9+5I95xATtIUo8lJqlir6X61gj4uOzuiwB6YI=",
   "Source": "Car Sharing MVC",
   "BasePath": "_content/Car Sharing MVC",
   "Mode": "Default",
@@ -169,6 +169,25 @@
       "OriginalItemSpec": "wwwroot\\css\\HomeCarSharingPage.css"
     },
     {
+      "Identity": "C:\\Users\\FeZoX\\Desktop\\Car Sharing MVC\\Car Sharing MVC\\wwwroot\\css\\HomePageIndex.scss",
+      "SourceId": "Car Sharing MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\FeZoX\\Desktop\\Car Sharing MVC\\Car Sharing MVC\\wwwroot\\",
+      "BasePath": "_content/Car Sharing MVC",
+      "RelativePath": "css/HomePageIndex.scss",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\HomePageIndex.scss"
+    },
+    {
       "Identity": "C:\\Users\\FeZoX\\Desktop\\Car Sharing MVC\\Car Sharing MVC\\wwwroot\\css\\Navbar.css",
       "SourceId": "Car Sharing MVC",
       "SourceType": "Discovered",
@@ -245,12 +264,12 @@
       "OriginalItemSpec": "wwwroot\\js\\CarSharingIndex.js"
     },
     {
-      "Identity": "C:\\Users\\FeZoX\\Desktop\\Car Sharing MVC\\Car Sharing MVC\\wwwroot\\js\\HomeCarSharingPage.js",
+      "Identity": "C:\\Users\\FeZoX\\Desktop\\Car Sharing MVC\\Car Sharing MVC\\wwwroot\\js\\HomePageIndex.js",
       "SourceId": "Car Sharing MVC",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\FeZoX\\Desktop\\Car Sharing MVC\\Car Sharing MVC\\wwwroot\\",
       "BasePath": "_content/Car Sharing MVC",
-      "RelativePath": "js/HomeCarSharingPage.js",
+      "RelativePath": "js/HomePageIndex.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -261,7 +280,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\HomeCarSharingPage.js"
+      "OriginalItemSpec": "wwwroot\\js\\HomePageIndex.js"
     },
     {
       "Identity": "C:\\Users\\FeZoX\\Desktop\\Car Sharing MVC\\Car Sharing MVC\\wwwroot\\js\\site.js",

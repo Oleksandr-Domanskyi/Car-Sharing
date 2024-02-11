@@ -1,8 +1,6 @@
 ﻿using AutoMapper;
 using CarSharingApplication.CarSharing.CarSharingProfileCommands.Queries.GetAllCarSharing;
 using CarSharingApplication.CarSharing.CarSharingProfileCommands.Queries.GetByNameCarSharing;
-using CarSharingApplication.DataTransferObjects;
-using CarSharingDomain.DomainModels;
 using CarSharingDomain.Interfaces;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -55,6 +53,7 @@ namespace Car_Sharing_MVC.Controllers
         public async Task<IActionResult> Details(Guid Id)
         {
             var dto = await _mediator.Send(new GetByIdCarSharingQuery(Id));
+            
             return View(dto);
         }
          [HttpGet]
@@ -70,8 +69,9 @@ namespace Car_Sharing_MVC.Controllers
             {
                 return NotFound();
             }
+
         }
-        [Route("CarSharing/{Id}/Edit")]
+            [Route("CarSharing/{Id}/Edit")]
         public async Task<IActionResult> Edit(Guid Id)
         {
             var dto = await _mediator.Send(new GetByIdCarSharingQuery(Id));
@@ -80,13 +80,14 @@ namespace Car_Sharing_MVC.Controllers
         }
         [HttpPost]
         [Route("CarSharing/{Id}/Edit")]
-        public async Task<IActionResult> Edit(Guid id, [FromForm] EditCarSharingCommand command, [FromForm] List<IFormFile>? NewImages, [FromForm] List<Image> ExistingImages, [FromForm]IFormFile PreViewImage)
+        public async Task<IActionResult> Edit(Guid id, [FromForm] EditCarSharingCommand command)
         {
+            command.Id = id;
             if (!ModelState.IsValid)
             {
                 return View(command);
             }
-            command.Id = id;
+           
             await _mediator.Send(command);
             return RedirectToAction("Details", "CarSharing", new { Id = id });
         }

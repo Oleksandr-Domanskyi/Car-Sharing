@@ -43,9 +43,17 @@ namespace CarSharingInfrastructure.Repositories
             }
             _dbContext.Remove(Domain);
             await _dbContext.SaveChangesAsync();
-        }       
-            
-            //Images Repositories
+        }
+        public async Task<IEnumerable<CarProfileModel?>> GetBySearchName(string Search)
+        {
+            var DomainModel = await _dbContext.CarProfileModels.Include(src => src.Image).Where(src => src.Name.Contains(Search)).ToListAsync();
+            if (DomainModel == null)
+            {
+                throw new ArgumentNullException($"{nameof(DomainModel)}");
+            }
+            return DomainModel;
+        }
+        //Images Repositories
 
         public async Task<Image?> GetImageById(Guid imageId)
             => await _dbContext.Images.FirstOrDefaultAsync(Enteties => Enteties.Id == imageId);
@@ -66,14 +74,8 @@ namespace CarSharingInfrastructure.Repositories
         public async Task SaveChanges()
              => await _dbContext.SaveChangesAsync();
 
-        public async Task<IEnumerable<CarProfileModel?>> GetBySearchName(string Search)
-        {
-            var DomainModel = await _dbContext.CarProfileModels.Include(src=>src.Image).Where(src => src.Name.Contains(Search)).ToListAsync();
-            if (DomainModel == null)
-            {
-                throw new ArgumentNullException($"{nameof(DomainModel)}");
-            }
-            return DomainModel;
-        }
+      
+
+   
     }
 }

@@ -30,7 +30,6 @@ namespace CarSharingApplication.CarSharing.CarSharingProfile.Commands.EditCarSha
                 .WithMessage("Invalid image type. Allowed types are: jpg, jpeg, png, gif");
 
             RuleFor(c => c.PreViewImage)
-                .NotEmpty().WithMessage("The Global image must be changed")
                 .Must(HaveValidImageTypes).WithMessage("Invalid image type. Allowed types are: jpg, jpeg, png, gif");
         }
 

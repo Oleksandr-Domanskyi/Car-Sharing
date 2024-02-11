@@ -1,22 +1,42 @@
-﻿@page "/"
-@using Microsoft.AspNetCore.Components.Web
-@using Microsoft.AspNetCore.Components
-
+﻿@model IEnumerable<CarSharingApplication.DataTransferObjects.ShowCarSharingProfileModelObject>
 
 <link rel="stylesheet" href="~/css/HomeCarSharingPage.css">
+<link rel="stylesheet" href="~/css/HomePageIndex.scss">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
 <div class="GlobalTitle text-center">
-    <h1 class="display-4">Welcome to Car Sharing</h1>
+    <h1 class="display-4 typing-animation">Welcome to Car Sharing</h1>
+    <hr class="hr-tittle" />
 </div>
-<div class="Container">
-    <div class="intro">
-        <button class="centered-button">
-            <a asp-controller="CarSharing" asp-action="Index" style="text-decoration: none; color: inherit;">Let`s Start</a>
-        </button>
+<div class="slider-container">
+    <div class="slider">
+        <div class="slides">
+            @foreach (var item in Model)
+            {
+                var slideIndex = 1;
+                <div class="slide">
+                    <div class="img-inf">
+                        <img src="data:@item.GlobalProfileImage.FileType;base64,@(Convert.ToBase64String(item.GlobalProfileImage.DataFile!))" alt="@item.Name" style="width: 340px; height: 190px;">
+                    </div>
+                    <span class="slide__text">@item.Name</span>
+                    <a class="slide__prev" href="#slides__@(slideIndex == 1 ? Model.Count() : slideIndex - 1)" title="Prev"></a>
+                    <a class="slide__next" href="#slides__@(slideIndex == Model.Count() ? 1 : slideIndex + 1)" title="Next"></a>
+                </div>
+                slideIndex++;
+            }
+        </div>
+        <div class="slider__nav">
+            @for (var i = 0; i < Model.Count(); i++)
+            {
+                var slideIndex = i + 1;
+                <a class="slider__navlink" href="#slides__@slideIndex"></a>
+            }
+        </div>
     </div>
 </div>
 
-<script src="~/js/HomeCarSharingPage.js"></script>
+<a href="https://alvarotrigo.com/blog/create-a-slider-with-pure-CSS/" target="_blank" class="read-article">
+    Read the article 👉
+</a>

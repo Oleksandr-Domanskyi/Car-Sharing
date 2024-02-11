@@ -16,6 +16,8 @@ namespace CarSharingApplication.DataTransferObjects
         public string Name { get; set; } = default!;
         public string? Description { get; set; }
         public int? PricePerDay { get; set; }
+
+        public IFormFile GlobalProfileImage { get; set; } = default!;
         public List<IFormFile> Images { get; set; } = default!;
 
         //Contact Details

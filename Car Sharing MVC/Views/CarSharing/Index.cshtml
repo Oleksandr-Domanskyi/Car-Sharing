@@ -35,13 +35,22 @@
                 item.Coutry = "Poland";
                 item.City = "Rzeszów";
                 item.ContactNumber = "+48000000";
+
             }
             <div class="card m-3 position-relative" style="width: 25rem; height: 30rem; position: relative; overflow: hidden; background: url('@Url.Action("GetIndexImage", "CarSharing", new { imageId = firstImage?.Id })') center; background-size: cover;">
                 <div class="card-overlay"></div>
                 <div class="card-body text-white">
                     <h5 class="card-title">@item.Name</h5>
                     <h6 class="card-subtitle mb-1">@item.PricePerDay @item.ValueMoney/Day</h6>
-                    <img class="card-image  w-100" src="@Url.Action("GetIndexImage", "CarSharing", new { imageId = firstImage?.Id })" alt="@item.Name" style="width: 340px; height: 190px;">
+                    @if (item.GlobalProfileImage.DataFile == null)
+                    {
+                        <img class="card-image  w-100" src="@Url.Action("GetIndexImage", "CarSharing", new { imageId = firstImage?.Id })" alt="@item.Name" style="width: 340px; height: 190px;">
+                    }
+                    else
+                    {
+                        <img class="card-image  w-100" src="data:@item.GlobalProfileImage.FileType;base64,@(Convert.ToBase64String(item.GlobalProfileImage.DataFile!))" alt="@item.Name" style="width: 340px; height: 190px;">
+                    }
+
                     <div class="mt-4 bottom-0 w-100 d-flex flex-column">
                         <p class="card-text">Country: @item.Coutry</p>
                         <p class="card-text">City: @item.City</p>

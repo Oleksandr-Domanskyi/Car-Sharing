@@ -28,6 +28,16 @@ namespace CarSharingApplication.Handler.ImageHandler
                 DataFile = GetBytesFromIFormFile(image)
             }).ToList();
         }
-      
+        public static GlobalProfileImage MapGlobalImages(IFormFile images)
+        {
+            // Map IFormFile instances to Image instances
+            return new GlobalProfileImage
+            {
+                Name = images.FileName,
+                FileType = images.ContentType,
+                DataFile = GetBytesFromIFormFile(images)
+            };
+        }
+
     }
 }

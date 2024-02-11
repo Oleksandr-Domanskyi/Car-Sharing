@@ -1,4 +1,6 @@
 using Car_Sharing_MVC.Models;
+using CarSharingApplication.CarSharing.CarSharingProfileCommands.Queries.GetAllCarSharing;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -7,15 +9,18 @@ namespace Car_Sharing_MVC.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IMediator _mediator;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger,IMediator mediator)
         {
             _logger = logger;
+            _mediator = mediator;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var carSharingList = await _mediator.Send(new GetAllCarSharingQuery());
+            return View(carSharingList);
         }
 
         public IActionResult Privacy()

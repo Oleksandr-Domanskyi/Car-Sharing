@@ -29,7 +29,10 @@
 
                     <div class="Front-Image-Money-Value">
                         <div class="Front-Image" style="position: relative;">
-                            <img src="@Url.Action("GetDetailsImage", "CarSharing", new { imageId = lastImage?.Id })" alt="@lastImage!.Name" class="last-image" width="600" height="400" style="border-radius: 20px;">
+                    
+                            <img src="data:@Model.GlobalProfileImage.FileType;base64,@(Convert.ToBase64String(Model.GlobalProfileImage.DataFile!))" alt="@lastImage!.Name" class="last-image" width="600" height="400" style="border-radius: 20px;">
+                            <input type="hidden" asp-for="GlobalProfileImage" value="@Model.GlobalProfileImage" />
+
                             <div class="Font-Image-Button" style="position: absolute; bottom: 0; left: 0; right: 0; text-align: center;">
                                 <label asp-for="PreViewImage" class="font-image-upload">
                                     <i class="fas fa-cloud-upload-alt"></i> Change Preview Image
@@ -196,7 +199,7 @@
             </form>
         </div>
     </div>
-
+        
 
     <div>
         <a asp-action="Index">Back to List</a>

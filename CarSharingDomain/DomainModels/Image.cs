@@ -13,7 +13,6 @@
             public string? FileType { get; set; }
             public byte[]? DataFile { get; set; }
 
-            public Guid CarProfileId { get; set; }
             public virtual CarProfileModel? CarProfileModel { get; set; }
 
         }

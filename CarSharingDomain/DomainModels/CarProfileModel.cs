@@ -12,9 +12,13 @@ namespace CarSharingDomain.DomainModels
         public Guid Id { get; set; }
         public string Name { get; set; } = default!;
         public string? Description { get; set; }
+
+        public GlobalProfileImage GlobalProfileImage { get; set; } = default!;
         public CarChatacteristics Characteristics { get; set; } = default!;
         public CarContactDetails CarContactDetails { get; set; } = default!;
         public int? PricePerDay { get; set; }
+
+        
 
         public List<Image> Image { get; set; } = default!;
     }

@@ -33,7 +33,18 @@
                     <div class="last-image-container">
                         @if (Model.Images.Any())
                         {
-                            <img src="@Url.Action("GetDetailsImage", "CarSharing", new { imageId = lastImage?.Id })" alt="@lastImage!.Name" class="last-image" width="600" height="400">
+                            @if (Model.GlobalProfileImage == null)
+                            {
+                                <img src="@Url.Action("GetIndexImage", "CarSharing", new { imageId = lastImage?.Id })" alt="@Model.Name" class="last-image" width="600" height="400">
+                            }
+                            else
+                            {
+                                <img src="data:@Model.GlobalProfileImage.FileType;base64,@(Convert.ToBase64String(Model.GlobalProfileImage.DataFile!))" alt="@Model.Name" class="last-image" width="600" height="400">
+                            }
+                           
+
+
+ 
                             <div class="car-info">
                                 <h4>Cost: @Model.PricePerDay @Model.ValueMoney/Day</h4>
                             </div>
