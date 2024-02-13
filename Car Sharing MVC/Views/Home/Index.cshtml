@@ -1,7 +1,8 @@
-﻿@model IEnumerable<CarSharingApplication.DataTransferObjects.ShowCarSharingProfileModelObject>
+﻿@model List<CarSharingApplication.DataTransferObjects.ShowCarSharingProfileModelObject>
 
-<link rel="stylesheet" href="~/css/HomeCarSharingPage.css">
-<link rel="stylesheet" href="~/css/HomePageIndex.scss">
+<link rel="stylesheet" href="~/css/HomeCarSharingPage.css?v=1">
+
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
@@ -10,33 +11,145 @@
     <h1 class="display-4 typing-animation">Welcome to Car Sharing</h1>
     <hr class="hr-tittle" />
 </div>
-<div class="slider-container">
-    <div class="slider">
-        <div class="slides">
-            @foreach (var item in Model)
-            {
-                var slideIndex = 1;
-                <div class="slide">
-                    <div class="img-inf">
-                        <img src="data:@item.GlobalProfileImage.FileType;base64,@(Convert.ToBase64String(item.GlobalProfileImage.DataFile!))" alt="@item.Name" style="width: 340px; height: 190px;">
-                    </div>
-                    <span class="slide__text">@item.Name</span>
-                    <a class="slide__prev" href="#slides__@(slideIndex == 1 ? Model.Count() : slideIndex - 1)" title="Prev"></a>
-                    <a class="slide__next" href="#slides__@(slideIndex == Model.Count() ? 1 : slideIndex + 1)" title="Next"></a>
-                </div>
-                slideIndex++;
-            }
+<div class="collage-image">
+    <img src="https://krots.top/uploads/posts/2021-10/1635325180_18-krot-info-p-fotokollazh-mashin-mashini-krasivo-foto-20.png" />
+    <div class="text-overlay">
+        <div class="text">
+            <p>„Когда Генри Форд создал дешёвые и надёжные автомобили, люди сказали: «Нет, спасибо. Чем плохи лошади?» Он рискнул всем, и это сработало.“</p>
+            <p style ="display:flex; justify-content:end">~Илон Маск</p>
         </div>
-        <div class="slider__nav">
-            @for (var i = 0; i < Model.Count(); i++)
-            {
-                var slideIndex = i + 1;
-                <a class="slider__navlink" href="#slides__@slideIndex"></a>
-            }
+        <div class="text" style="display:none;">
+            <p>„В Италии есть только одно ограничение скорости — это максимальная скорость вашего автомобиля.“</p>
+            <p style="display:flex; justify-content:end">~Джереми Кларксон</p>
         </div>
     </div>
 </div>
+<div class="Medium">
+    <div class="Car-Sharing">
+        <h2> Car Sharing</h2>
+        <hr />
+        <p>
+            On this site, you can easily find and rent your favorite car.
+            You can negotiate with the car owner in a simple way. The time spent is minimal, and the benefits of the result are maximum. Join us if you like cars.
+            You can also offer your cars for your own price if you need to.
+            Remember the more descriptions you give the more likely it is that your car will be rented
+        </p>
+        <h2 class="my-info">About Us</h2>
+        <hr />
+        <p>
+            This project was created by one student to improve their acquired skills, as well as learn new programming skills.
+        </p>
+        <h2 class="my-info">Contact information</h2>
+        <hr />
+        <p>Created By: Oleksandr Domanskyi</p>
+        <p>Phone number: +48 728 396 777</p>
+        <p>
+            Gmail: sasha2001do@gmail.com
+        </p>
+    </div>
+    <img src="https://krots.top/uploads/posts/2021-10/1635325140_34-krot-info-p-fotokollazh-mashin-mashini-krasivo-foto-39.jpg" style="width:900px; height:600px"/>
+</div>
 
-<a href="https://alvarotrigo.com/blog/create-a-slider-with-pure-CSS/" target="_blank" class="read-article">
-    Read the article 👉
-</a>
+<div class="Slider-slider-tittle">
+    <h2 style="display: block; align-items: center; color: white;margin-top:20px;">Top 5 offers</h2>
+    <section class="Container">
+        <div class="slider-wrapper">
+            <div class="Slider">
+                @for (int i = 0; i < Model.Count; i++)
+                {
+                    <img id="slide-@(i + 1)" src="data:@Model[i].GlobalProfileImage.FileType;base64,@(Convert.ToBase64String(Model[i].GlobalProfileImage.DataFile!))" alt="@Model[i].Name" />
+                }
+                <button class="prev">&#10094;</button>
+                <button class="next">&#10095;</button>
+            </div>
+            <div class="slider-nav">
+                @for (int i = 0; i < Model.Count; i++)
+                {
+                    <a href="#slide-@(i + 1)"></a>
+                }
+            </div>
+        </div>
+        @for (int i = 0; i < Model.Count; i++)
+        {
+            <div class="Information" style="color:white; display: none;">
+                <div class="Description-Location">
+                    <h3>@Model[i].Name</h3>
+                    <h4>Country: @Model[i].Coutry City: @Model[i].City</h4>
+                </div>
+                <hr />
+                <p>@Model[i].Description</p>
+                <hr />
+                <div class="Price-Contact">
+                    <h4>Price: @Model[i].PricePerDay @Model[i].ValueMoney/Day</h4>
+                    <h4>Contact: @Model[i].ContactNumber</h4>
+                </div>
+            </div>
+        }
+    </section>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const texts = document.querySelectorAll('.text');
+        let index = 0;
+
+        function showNextText() {
+            texts.forEach((text, i) => {
+                if (i === index) {
+                    text.style.display = 'block';
+                } else {
+                    text.style.display = 'none';
+                }
+            });
+
+            index = (index + 1) % texts.length;
+        }
+
+        // Показываем первый текст сразу
+        showNextText();
+
+        // Затем показываем следующий текст каждые 15 секунд
+        setInterval(showNextText, 20000);
+    });
+
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const slides = document.querySelectorAll(".Slider img");
+        const prevButton = document.querySelector(".prev");
+        const nextButton = document.querySelector(".next");
+        const informationBlocks = document.querySelectorAll(".Information");
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            slides.forEach((slide) => {
+                slide.style.display = "none";
+            });
+            informationBlocks.forEach((block) => {
+                block.classList.remove("fade-in");
+                block.style.display = "none";
+            });
+            slides[index].style.display = "block";
+            informationBlocks[index].style.display = "block";
+            setTimeout(() => {
+                informationBlocks[index].classList.add("fade-in");
+            }, 50); // Delay for smoother animation
+        }
+
+        function showNextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        function showPreviousSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        prevButton.addEventListener("click", showPreviousSlide);
+        nextButton.addEventListener("click", showNextSlide);
+
+        setInterval(showNextSlide, 5000); // Change slide every 5 seconds
+
+        showSlide(currentSlide);
+    });
+</script>
