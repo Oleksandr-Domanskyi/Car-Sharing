@@ -225,5 +225,18 @@ input[type="file"] {
     font-size:20px;
     color:red;
 }
+.Title-Back {
+    display: flex;
+    margin-top:5%;
+    justify-content: space-between; /* Distribute items along the main axis */
+    align-items: center; /* Center vertically */
+}
 
+    .Title-Back h1 {
+        margin: 0; /* Remove default margin */
+    }
 
+    .Title-Back a {
+        font-size: 18px;
+        margin-left: auto; /* Push the button to the right */
+    }

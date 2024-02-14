@@ -13,10 +13,12 @@
     <link rel="stylesheet" href="/css/CarEdit.css">
 </head>
 
-<h1 class="Title">Edit "@Model.Name"</h1>
-
+<div class="Title-Back">
+    <h1 class="Title">Edit "@Model.Name"</h1>
+    <a class="btn btn-outline-secondary" asp-action="Index">X</a>
+</div>
 <hr style="color:white" />
-<body style="background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('@Url.Action("GetIndexImage", "CarSharing", new { imageId = lastImage.Id })') center / cover no-repeat; backdrop-filter: blur(10px);">
+<body style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('@Url.Action("GetIndexImage", "CarSharing", new { imageId = lastImage.Id })') center / cover no-repeat; backdrop-filter: blur(10px);">
 
 
 
@@ -30,7 +32,7 @@
                     <div class="Front-Image-Money-Value">
                         <div class="Front-Image" style="position: relative;">
                     
-                            <img src="data:@Model.GlobalProfileImage.FileType;base64,@(Convert.ToBase64String(Model.GlobalProfileImage.DataFile!))" alt="@lastImage!.Name" class="last-image" width="600" height="400" style="border-radius: 20px;">
+                            <img src="data:@Model.GlobalProfileImage!.FileType;base64,@(Convert.ToBase64String(Model.GlobalProfileImage.DataFile!))" alt="@lastImage!.Name" class="last-image" width="600" height="400" style="border-radius: 20px;">
                             <input type="hidden" asp-for="GlobalProfileImage" value="@Model.GlobalProfileImage" />
 
                             <div class="Font-Image-Button" style="position: absolute; bottom: 0; left: 0; right: 0; text-align: center;">
@@ -198,13 +200,7 @@
                 </script>
             </form>
         </div>
-    </div>
-        
-
-    <div>
-        <a asp-action="Index">Back to List</a>
-    </div>
-
+    </div>      
 </body>
 
 

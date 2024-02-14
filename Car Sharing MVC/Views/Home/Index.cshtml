@@ -47,11 +47,25 @@
             Gmail: sasha2001do@gmail.com
         </p>
     </div>
-    <img src="https://krots.top/uploads/posts/2021-10/1635325140_34-krot-info-p-fotokollazh-mashin-mashini-krasivo-foto-39.jpg" style="width:900px; height:600px"/>
+    <div class="Medium-img-button">
+        <a class="start-button" asp-controller="CarSharing" , asp-action="Index">Let`s Start</a>
+        <img class="medium-img" src="https://krots.top/uploads/posts/2021-10/1635325140_34-krot-info-p-fotokollazh-mashin-mashini-krasivo-foto-39.jpg" style="width:900px; height:600px;   " />
+    </div>
+   
 </div>
 
 <div class="Slider-slider-tittle">
-    <h2 style="display: block; align-items: center; color: white;margin-top:20px;">Top 5 offers</h2>
+    <div class="h2-a">
+        <h2 style="display: block;justify-content:center; color: white;margin-top:20px;">Top 5 offers</h2>
+        <div class="a-teg-slider">
+            @for (int i = 0; i < Model.Count; i++)
+            {
+                <a class="btn btn-outline-secondary details-btn" data-info="@i" asp-controller="CarSharing" asp-action="Details" asp-route-Id="@Model[i].Id" style="display: none;">Details</a>
+            }
+        </div>
+    </div>
+
+    <hr style="color:white" />
     <section class="Container">
         <div class="slider-wrapper">
             <div class="Slider">
@@ -87,6 +101,60 @@
         }
     </section>
 </div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const slides = document.querySelectorAll(".Slider img");
+        const prevButton = document.querySelector(".prev");
+        const nextButton = document.querySelector(".next");
+        const informationBlocks = document.querySelectorAll(".Information");
+        const detailsButtons = document.querySelectorAll(".details-btn");
+
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            slides.forEach((slide) => {
+                slide.style.display = "none";
+            });
+            informationBlocks.forEach((block) => {
+                block.classList.remove("fade-in");
+                block.style.display = "none";
+            });
+            slides[index].style.display = "block";
+            informationBlocks[index].style.display = "block";
+            setTimeout(() => {
+                informationBlocks[index].classList.add("fade-in");
+            }, 50); // Delay for smoother animation
+
+            // Show only the details button for the current slide
+            detailsButtons.forEach((button, i) => {
+                if (i === index) {
+                    button.style.display = "inline-block";
+                } else {
+                    button.style.display = "none";
+                }
+            });
+        }
+
+        function showNextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        function showPreviousSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        prevButton.addEventListener("click", showPreviousSlide);
+        nextButton.addEventListener("click", showNextSlide);
+
+        setInterval(showNextSlide, 5000); // Change slide every 5 seconds
+
+        showSlide(currentSlide);
+    });
+</script>
+
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         const texts = document.querySelectorAll('.text');
@@ -112,44 +180,4 @@
     });
 
 </script>
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const slides = document.querySelectorAll(".Slider img");
-        const prevButton = document.querySelector(".prev");
-        const nextButton = document.querySelector(".next");
-        const informationBlocks = document.querySelectorAll(".Information");
-        let currentSlide = 0;
 
-        function showSlide(index) {
-            slides.forEach((slide) => {
-                slide.style.display = "none";
-            });
-            informationBlocks.forEach((block) => {
-                block.classList.remove("fade-in");
-                block.style.display = "none";
-            });
-            slides[index].style.display = "block";
-            informationBlocks[index].style.display = "block";
-            setTimeout(() => {
-                informationBlocks[index].classList.add("fade-in");
-            }, 50); // Delay for smoother animation
-        }
-
-        function showNextSlide() {
-            currentSlide = (currentSlide + 1) % slides.length;
-            showSlide(currentSlide);
-        }
-
-        function showPreviousSlide() {
-            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-            showSlide(currentSlide);
-        }
-
-        prevButton.addEventListener("click", showPreviousSlide);
-        nextButton.addEventListener("click", showNextSlide);
-
-        setInterval(showNextSlide, 5000); // Change slide every 5 seconds
-
-        showSlide(currentSlide);
-    });
-</script>
