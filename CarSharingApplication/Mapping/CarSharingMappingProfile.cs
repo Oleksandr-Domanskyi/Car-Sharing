@@ -6,13 +6,15 @@ using CarSharingDomain.DomainModels.Enums;
 using System.Linq;
 using Microsoft.AspNetCore.Http;
 using CarSharingApplication.CarSharing.CarSharingProfileCommands.Commands.EditCarSharing;
+using CarSharingApplication.ApplicationUser;
 
 namespace CarSharingApplication.Mapping
 {
     public class CarSharingMappingProfile : Profile
     {
-        public CarSharingMappingProfile()
+        public CarSharingMappingProfile(IUserContext userContext)
         {
+            var user = userContext.GetCurrentUser();
             CreateMap<CarProfileModel, CreateCarSharingProfileModelObject>()
                 .ForMember(dto => dto.Silnik, opt => opt.MapFrom(src => src.Characteristics.Engine))
                 .ForMember(dto => dto.Tapicerka, opt => opt.MapFrom(src => src.Characteristics.Upholstery))
@@ -49,7 +51,9 @@ namespace CarSharingApplication.Mapping
                 .ForMember(dest => dest.Coutry, opt => opt.MapFrom(src => src.CarContactDetails.Coutry.ToString()))
                 .ForMember(dest => dest.City, opt => opt.MapFrom(src => src.CarContactDetails.City))
                 .ForMember(dest => dest.ContactNumber, opt => opt.MapFrom(src => src.CarContactDetails.ContactNumber))
-                .ForMember(dest => dest.ValueMoney, opt => opt.MapFrom(src => src.CarContactDetails.ValueMoney.ToString()));
+                .ForMember(dest => dest.ValueMoney, opt => opt.MapFrom(src => src.CarContactDetails.ValueMoney.ToString()))
+
+                .ForMember(dest => dest.IsEditable, opt => opt.MapFrom(src => user!=null && src.CreatedById == user.Id));
 
             CreateMap<ShowCarSharingProfileModelObject, EditCarSharingCommand>()
                 .ForMember(dest => dest.ExistingImages, opt => opt.MapFrom(src => src.Images))

@@ -9,6 +9,7 @@ using CarSharingApplication.CarSharing.CarSharingProfileCommands.Commands.EditCa
 using CarSharingApplication.CarSharing.CarSharingImage.Commands;
 using CarSharingApplication.CarSharing.CarSharingProfile.Commands.DelateCarSharing;
 using CarSharingApplication.CarSharing.CarSharingProfile.Queries.GetBySearchName;
+using Microsoft.AspNetCore.Authorization;
 namespace Car_Sharing_MVC.Controllers
 {
     public class CarSharingController : Controller
@@ -75,6 +76,12 @@ namespace Car_Sharing_MVC.Controllers
         public async Task<IActionResult> Edit(Guid Id)
         {
             var dto = await _mediator.Send(new GetByIdCarSharingQuery(Id));
+
+            if (!dto.IsEditable)
+            {
+                return RedirectToAction("NoAccess");
+            }
+
             EditCarSharingCommand command =_mapper.Map<EditCarSharingCommand>(dto);
             return View(command);
         }
@@ -103,11 +110,13 @@ namespace Car_Sharing_MVC.Controllers
             await _mediator.Send(new DeleteCarSharingCommand(Id));
             return Json(new { success = true });
         }
-   
+
+        [Authorize]
         public IActionResult Create()
         {
             return View();
         }
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> Create([FromForm] CreateCarSharingCommand command, [FromForm] List<IFormFile> images)
         {
@@ -117,6 +126,10 @@ namespace Car_Sharing_MVC.Controllers
             }
             await _mediator.Send(command);
             return RedirectToAction(nameof(Index));
+        }
+        public IActionResult NoAccess()
+        {
+            return View();
         }
     }
 }

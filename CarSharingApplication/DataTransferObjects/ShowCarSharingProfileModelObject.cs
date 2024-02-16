@@ -32,6 +32,8 @@ namespace CarSharingApplication.DataTransferObjects
         public string? Color { get; set; }
         public string? Felgi { get; set; }
         public string? Tapicerka { get; set; }
+
+        public bool IsEditable { get; set; }
         
     }
 }

@@ -57,7 +57,10 @@
                         <p class="card-subtitle">Contact number: @item.ContactNumber </p>
                         <div class="d-flex justify-content-between mt-3">
                             <a class="btn btn-primary" asp-controller="CarSharing" asp-action="Details" asp-route-Id="@item.Id">Details</a>
-                            <a class="btn btn-outline-secondary" asp-controller="CarSharing" asp-action="Edit" asp-route-Id="@item.Id">Edit</a>
+                            @if (item.IsEditable)
+                            {
+                                <a class="btn btn-outline-secondary" asp-controller="CarSharing" asp-action="Edit" asp-route-Id="@item.Id">Edit</a>
+                            }          
                         </div>
                     </div>
                 </div>

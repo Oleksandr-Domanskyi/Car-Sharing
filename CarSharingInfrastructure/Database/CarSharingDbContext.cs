@@ -1,4 +1,5 @@
 ﻿using CarSharingDomain.DomainModels;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CarSharingInfrastructure.Database
 {
-    public class CarSharingDbContext:DbContext
+    public class CarSharingDbContext:IdentityDbContext
     {
         public CarSharingDbContext(DbContextOptions<CarSharingDbContext> options):base(options)
         {
@@ -20,6 +21,7 @@ namespace CarSharingInfrastructure.Database
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<CarProfileModel>().OwnsOne(c => c.Characteristics);
             modelBuilder.Entity<CarProfileModel>().OwnsOne(c => c.CarContactDetails);
             modelBuilder.Entity<CarProfileModel>().OwnsOne(c => c.GlobalProfileImage);

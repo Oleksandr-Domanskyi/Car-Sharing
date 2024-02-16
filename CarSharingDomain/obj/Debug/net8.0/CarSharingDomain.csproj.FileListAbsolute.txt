@@ -10,3 +10,4 @@ C:\Users\FeZoX\Desktop\Car Sharing MVC\CarSharingDomain\obj\Debug\net8.0\refint\
 C:\Users\FeZoX\Desktop\Car Sharing MVC\CarSharingDomain\obj\Debug\net8.0\CarSharingDomain.pdb
 C:\Users\FeZoX\Desktop\Car Sharing MVC\CarSharingDomain\obj\Debug\net8.0\ref\CarSharingDomain.dll
 C:\Users\FeZoX\Desktop\Car Sharing MVC\CarSharingDomain\obj\Debug\net8.0\CarSharingDomain.sourcelink.json
+C:\Users\FeZoX\Desktop\Car Sharing MVC\CarSharingDomain\obj\Debug\net8.0\CarSharingDomain.csproj.AssemblyReference.cache

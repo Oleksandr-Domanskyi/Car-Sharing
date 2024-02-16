@@ -2,6 +2,7 @@
 using CarSharingInfrastructure.Database;
 using CarSharingInfrastructure.Repositories;
 using CarSharingInfrastructure.Seeders;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -24,6 +25,9 @@ namespace CarSharingInfrastructure.Extentions
             service.AddScoped<ICarSharingRepositories, CarSharingRepositories>();
 
             service.AddScoped<CarSharingSeeder>();
+
+            service.AddDefaultIdentity<IdentityUser>()
+                .AddEntityFrameworkStores<CarSharingDbContext>();
         }
     }
 }

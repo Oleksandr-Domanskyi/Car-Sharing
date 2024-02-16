@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using CarSharingApplication.ApplicationUser;
 using CarSharingApplication.DataTransferObjects;
 using CarSharingApplication.Handler.ImageHandler;
 using CarSharingApplication.Mapping;
@@ -20,15 +21,25 @@ namespace CarSharingApplication.CarSharing.CarSharingProfileCommands.Commands.Ed
     {
         private readonly ICarSharingRepositories _carSharingRepositories;
         private readonly IMapper _mapper;
+        private readonly IUserContext _userContext;
 
-        public EditCarSharingCommandHandler(ICarSharingRepositories carSharingRepositories, IMapper mapper)
+        public EditCarSharingCommandHandler(ICarSharingRepositories carSharingRepositories, IMapper mapper,IUserContext userContext)
         {
             _carSharingRepositories = carSharingRepositories;
             _mapper = mapper;
+            _userContext = userContext;
         }
         public async Task<Unit> Handle(EditCarSharingCommand request, CancellationToken cancellationToken)
         {
             var CarSharing = await _carSharingRepositories.GetByName(request.Id);
+
+            var user = _userContext.GetCurrentUser();
+            var isEditable = user!=null && CarSharing?.CreatedById == user.Id;
+
+            if(!isEditable)
+            {
+                return Unit.Value;
+            }
             
             if (CarSharing == null)
             {
