@@ -90,7 +90,7 @@
                 <div class="image-gallery">
                     @foreach (var image in Model.Images)
                     {
-                        <img src="@Url.Action("GetDetailsImage", "CarSharing", new { imageId = image.Id })" alt="@image.Name" class="detail-image" width="300" height="200">
+                        <img src="@Url.Action("GetDetailsImage", "CarSharing", new { imageId = image.Id })" alt="@image.Name" class="detail-image" width="300" height="200" style="border-radius:20px;">
                     }
                 </div>
             </div>

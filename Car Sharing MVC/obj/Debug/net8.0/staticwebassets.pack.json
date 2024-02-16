@@ -25,16 +25,8 @@
       "PackagePath": "staticwebassets\\css\\HomeCarSharingPage.css"
     },
     {
-      "Id": "C:\\Users\\FeZoX\\Desktop\\Car Sharing MVC\\Car Sharing MVC\\wwwroot\\css\\HomePageIndex.scss",
-      "PackagePath": "staticwebassets\\css\\HomePageIndex.scss"
-    },
-    {
       "Id": "C:\\Users\\FeZoX\\Desktop\\Car Sharing MVC\\Car Sharing MVC\\wwwroot\\css\\Navbar.css",
       "PackagePath": "staticwebassets\\css\\Navbar.css"
-    },
-    {
-      "Id": "C:\\Users\\FeZoX\\Desktop\\Car Sharing MVC\\Car Sharing MVC\\wwwroot\\css\\site.css",
-      "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
       "Id": "C:\\Users\\FeZoX\\Desktop\\Car Sharing MVC\\Car Sharing MVC\\wwwroot\\favicon.ico",
@@ -43,14 +35,6 @@
     {
       "Id": "C:\\Users\\FeZoX\\Desktop\\Car Sharing MVC\\Car Sharing MVC\\wwwroot\\js\\CarSharingIndex.js",
       "PackagePath": "staticwebassets\\js\\CarSharingIndex.js"
-    },
-    {
-      "Id": "C:\\Users\\FeZoX\\Desktop\\Car Sharing MVC\\Car Sharing MVC\\wwwroot\\js\\HomePageIndex.js",
-      "PackagePath": "staticwebassets\\js\\HomePageIndex.js"
-    },
-    {
-      "Id": "C:\\Users\\FeZoX\\Desktop\\Car Sharing MVC\\Car Sharing MVC\\wwwroot\\js\\site.js",
-      "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
       "Id": "C:\\Users\\FeZoX\\Desktop\\Car Sharing MVC\\Car Sharing MVC\\wwwroot\\lib\\bootstrap\\LICENSE",

@@ -111,9 +111,9 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="GlobalImage-Name-Description">
                 <div class="Front-Image-Money-Value">
-                    <div id="globalImage" class="GlobalImage">
+                    <div id="globalImage" class="GlobalImage btn btn-outline-primary">
                         <!-- Указываем id="globalImage" -->
-                        <label asp-for="GlobalProfileImage" for="globalProfileImage" style="width: 100%; height: 100%;">
+                        <label class="" asp-for="GlobalProfileImage" for="globalProfileImage" style="width: 100%; height: 100%;">
                             Your Card Image
                             <input asp-for="GlobalProfileImage" id="globalProfileImage" type="file" multiple style="display: none;" onchange="updateImagePreview(this)" />
                         </label>

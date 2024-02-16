@@ -1,4 +1,4 @@
-﻿/* Стили для формы редактирования */
+﻿
 .form-group {
     margin-bottom: 20px; /* Отступ между элементами формы */
 }
@@ -10,23 +10,29 @@
     gap: 10px; /* Расстояние между изображениями */
 }
 
-    .image-container img {
-        max-width: 200px; /* Максимальная ширина изображений */
-        height: auto; /* Автоматическая высота для сохранения пропорций */
-    }
+.image-container img {
+
+    border-radius:20px;
+    width: 300px; 
+    height: 200px; 
+}
 
     .image-container .image-item {
+
         position: relative; /* Позиционирование для кнопки удаления */
         margin-bottom: 10px; /* Отступ между изображениями */
     }
 
 .delete-button {
+    background-color: rgba(0,0,0,0.1);
+    width: 100px;
+    height: 50px;
+    color: red;
     position: absolute; /* Позиционирование кнопки удаления */
     top: 5px; /* Отступ от верхнего края */
     right: 5px; /* Отступ от правого края */
-    background-color: #ff0000; /* Цвет фона кнопки */
-    color: #ffffff; /* Цвет текста кнопки */
-    border: none; /* Удаление границы */
+
+
     padding: 5px; /* Отступы внутри кнопки */
     cursor: pointer; /* Изменение курсора при наведении */
     font-size: 14px; /* Размер шрифта */
@@ -240,3 +246,26 @@ input[type="file"] {
         font-size: 18px;
         margin-left: auto; /* Push the button to the right */
     }
+.Images-Container{
+    display:flex;
+    justify-content:space-between;
+}
+.End-back{
+    font-size:24px;
+    display:flex;
+    justify-content:space-between;
+    margin-right:10%;
+
+}
+.End{
+    font-size:24px;
+
+}
+.End input,button{
+    width:200px;
+    height:50px;
+}
+.GoBack {
+    width: 200px;
+    height: 50px;
+}
