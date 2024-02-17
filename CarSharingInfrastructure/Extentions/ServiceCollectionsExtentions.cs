@@ -27,6 +27,7 @@ namespace CarSharingInfrastructure.Extentions
             service.AddScoped<CarSharingSeeder>();
 
             service.AddDefaultIdentity<IdentityUser>()
+                .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<CarSharingDbContext>();
         }
     }

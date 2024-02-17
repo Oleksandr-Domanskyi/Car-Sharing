@@ -53,7 +53,7 @@ namespace CarSharingApplication.Mapping
                 .ForMember(dest => dest.ContactNumber, opt => opt.MapFrom(src => src.CarContactDetails.ContactNumber))
                 .ForMember(dest => dest.ValueMoney, opt => opt.MapFrom(src => src.CarContactDetails.ValueMoney.ToString()))
 
-                .ForMember(dest => dest.IsEditable, opt => opt.MapFrom(src => user!=null && src.CreatedById == user.Id));
+                .ForMember(dest => dest.IsEditable, opt => opt.MapFrom(src => user!=null && (src.CreatedById == user.Id || user.isInRole("Admin"))));
 
             CreateMap<ShowCarSharingProfileModelObject, EditCarSharingCommand>()
                 .ForMember(dest => dest.ExistingImages, opt => opt.MapFrom(src => src.Images))

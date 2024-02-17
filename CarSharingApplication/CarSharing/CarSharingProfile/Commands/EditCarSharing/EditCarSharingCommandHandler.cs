@@ -34,7 +34,7 @@ namespace CarSharingApplication.CarSharing.CarSharingProfileCommands.Commands.Ed
             var CarSharing = await _carSharingRepositories.GetByName(request.Id);
 
             var user = _userContext.GetCurrentUser();
-            var isEditable = user!=null && CarSharing?.CreatedById == user.Id;
+            var isEditable = user!=null && (CarSharing?.CreatedById == user.Id || user.isInRole("Admin"));
 
             if(!isEditable)
             {
