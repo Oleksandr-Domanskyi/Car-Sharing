@@ -30,8 +30,8 @@
                         <li class="nav-item @(controller == "CarSharing" && action=="Index"?"active":"")">
                             <a class="nav-link" asp-area="" asp-controller="CarSharing" asp-action="Index">Car Menu</a>
                         </li>
-                        <li class="nav-item @(controller == "Home" && action=="Privacy"?"active":"")">
-                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        <li class="nav-item @(controller == "Home" && action=="About"?"active":"")">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="About">About Us</a>
                         </li>
                     </ul>
                     <form class="d-flex" asp-controller="CarSharing" asp-action="Index" method="get">

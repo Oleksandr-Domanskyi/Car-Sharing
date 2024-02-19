@@ -23,7 +23,7 @@ namespace Car_Sharing_MVC.Controllers
             return View(carSharingList);
         }
 
-        public IActionResult Privacy()
+        public IActionResult About()
         {
             return View();
         }

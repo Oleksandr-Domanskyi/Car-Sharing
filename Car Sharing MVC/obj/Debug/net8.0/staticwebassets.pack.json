@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\Car Sharing MVC.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\FeZoX\\Desktop\\Car Sharing MVC\\Car Sharing MVC\\wwwroot\\css\\About.css",
+      "PackagePath": "staticwebassets\\css\\About.css"
+    },
+    {
       "Id": "C:\\Users\\FeZoX\\Desktop\\Car Sharing MVC\\Car Sharing MVC\\wwwroot\\css\\CarCreate.css",
       "PackagePath": "staticwebassets\\css\\CarCreate.css"
     },
@@ -25,8 +29,16 @@
       "PackagePath": "staticwebassets\\css\\HomeCarSharingPage.css"
     },
     {
+      "Id": "C:\\Users\\FeZoX\\Desktop\\Car Sharing MVC\\Car Sharing MVC\\wwwroot\\css\\Login.css",
+      "PackagePath": "staticwebassets\\css\\Login.css"
+    },
+    {
       "Id": "C:\\Users\\FeZoX\\Desktop\\Car Sharing MVC\\Car Sharing MVC\\wwwroot\\css\\Navbar.css",
       "PackagePath": "staticwebassets\\css\\Navbar.css"
+    },
+    {
+      "Id": "C:\\Users\\FeZoX\\Desktop\\Car Sharing MVC\\Car Sharing MVC\\wwwroot\\css\\Register.css",
+      "PackagePath": "staticwebassets\\css\\Register.css"
     },
     {
       "Id": "C:\\Users\\FeZoX\\Desktop\\Car Sharing MVC\\Car Sharing MVC\\wwwroot\\favicon.ico",
