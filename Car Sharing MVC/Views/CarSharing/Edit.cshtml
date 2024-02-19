@@ -154,18 +154,16 @@
                 <div class="Exhisting-images image-container">
                     @for (var i = 0; i < Model.ExistingImages!.Count; i++)
                     {
+                        var displayStyle = Model.ExistingImages.Count == 1 ? "none" : "inline-block";
+
                         <div class="image-item">
                             <img src="@Url.Action("GetDetailsImage", "CarSharing", new { imageId = Model.ExistingImages[i].Id })" alt="@Model.ExistingImages[i].Name" />
                             <input type="hidden" name="ExistingImages[@i].Id" value="@Model.ExistingImages[i].Id" />
-                            @{
-                                var displayStyle = Model.ExistingImages.Count == 1 ? "none" : "inline-block";
-                            }
-                            <button type="button" style="display: '@displayStyle'" class="delete-button btn btn-outline-danger" onclick="removeImage('@Model.ExistingImages[i].Id')">Delete</button>
-
+                            <button type="button" style="display: @displayStyle" class="delete-button btn btn-outline-danger" onclick="removeImage('@Model.ExistingImages[i].Id')">Delete</button>
                         </div>
                     }
-
                 </div>
+
                 <div class="End-back">
                     <div class="End">
                         <input type="submit" value="Save" class="btn btn-primary" />
