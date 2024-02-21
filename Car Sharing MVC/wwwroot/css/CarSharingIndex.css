@@ -52,12 +52,11 @@
 }
 
 .container h1 {
-    font-weight: bold;
-    color: whitesmoke;
+    color: var( --button-text);
     text-shadow: initial;
     margin-top: 5%;
     font-size: 60px;
-    font-family: "Comfortaa", sans-serif;
+    font-family: "Montserrat Alternates", sans-serif;
 }
 
 .container button {
@@ -65,13 +64,13 @@
     font-weight:bold
 }
 .container h3 {
-    font-weight: bolder;
-    color: rgb(198, 250, 250);
-    font-family: "Comfortaa", sans-serif;
+    color: var( --Count-Items);
+    font-family: "Montserrat Alternates", sans-serif;
 }
 .container button {
     margin-bottom: 20px;
     color: darkslategrey;
+
 }
 .custom-button {
     background-color: transparent;
@@ -84,10 +83,10 @@
         margin-top: 20px;
         display: inline-block;
         padding: 20px 40px; /* Увеличиваем отступы вокруг текста кнопки */
-        color: whitesmoke;
+        color: var( --button-text);
         text-size-adjust: inherit;
         text-decoration: none;
-        background-color: rgb(198, 250, 250,0.4); /* Оранжевый фон с небольшой прозрачностью */
+        background-color: var(--button-background-color); /* Оранжевый фон с небольшой прозрачностью */
         border-radius: 10px; /* Закругление углов */
         transition: background-color 0.3s ease; /* Плавное изменение цвета фона при наведении */
     }
@@ -100,12 +99,12 @@
 
 .Count-buttonCreate {
     display: flex;
-    justify-content: space-between; /* Разместить элементы с разных сторон */
-    align-items: center; /* Выровнять элементы по вертикали */
+    justify-content: space-between; 
+    align-items: center; 
 }
 
 body {
-    background-color: #85a3bb !important; /* Синий оттенок */
+    background-color: var( --color-background);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -113,9 +112,14 @@ body {
     align-items: center;
     justify-content: center;
 }
-.container {
+.title {
     display: flex;
     justify-content: center;
+    padding-bottom: 100px;
+    align-content: center;
+    background-color: var( --body-background);
+    margin-left: calc((100% - 100vw) / 2);
+    margin-right: calc((100% - 100vw) / 2);
     align-items: center; /* Чтобы контейнер занимал всю высоту страницы */
 }
 

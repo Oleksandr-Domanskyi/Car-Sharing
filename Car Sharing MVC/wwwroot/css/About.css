@@ -1,14 +1,14 @@
 ﻿body {
-    background: #0e1323;
-    color: white;
+    background: var( --about-background);
+    color: var( --color-text);
 }
 
 .title-description {
     display: flex;
     flex-direction: column;
     align-items: center;
-    color:black;
-    background-color: white;
+    color: var(--color-text);
+    background-color: var(--color-background);
     width: 100vw;
     height: 400px;
     margin-left: calc((100% - 100vw) / 2);
@@ -78,13 +78,12 @@ hr {
     font-family: "Montserrat Alternates", sans-serif;
     display: flex;
     flex-direction: column;
-    color: black;
-    background-color: white;
+    color: var(--color-text);
+    background-color: var(--color-background);
     width: 100vw;
     height: 400px;
     margin-left: calc((100% - 100vw) / 2);
     margin-right: calc((100% - 100vw) / 2);
-
 }
     .end p,a {
         display:flex;

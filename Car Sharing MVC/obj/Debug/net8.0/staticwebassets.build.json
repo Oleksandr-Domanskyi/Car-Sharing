@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ckw3t6Vw1W+kY0RKeJvZZtRX0Xz4Hedx9AQ3FL554lo=",
+  "Hash": "BCwulyCfbc7BlczPKs09z1B4OLp2TaV15rf3jqNkaD0=",
   "Source": "Car Sharing MVC",
   "BasePath": "_content/Car Sharing MVC",
   "Mode": "Default",
@@ -281,25 +281,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
-    },
-    {
-      "Identity": "C:\\Users\\FeZoX\\Desktop\\Car Sharing MVC\\Car Sharing MVC\\wwwroot\\js\\CarSharingIndex.js",
-      "SourceId": "Car Sharing MVC",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\FeZoX\\Desktop\\Car Sharing MVC\\Car Sharing MVC\\wwwroot\\",
-      "BasePath": "_content/Car Sharing MVC",
-      "RelativePath": "js/CarSharingIndex.js",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\CarSharingIndex.js"
     },
     {
       "Identity": "C:\\Users\\FeZoX\\Desktop\\Car Sharing MVC\\Car Sharing MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",

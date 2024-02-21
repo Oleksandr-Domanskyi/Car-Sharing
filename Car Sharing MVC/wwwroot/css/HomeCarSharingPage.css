@@ -1,19 +1,17 @@
 ﻿body {
-    background-color: #0e1323;
+    background-color: var( --body-background);
     width: 100%;
     height: 100%;
 }
 .container {
     border-radius: 20px;
-    background-color: #fff;
+    background-color: var(--color-background);
     width: 100%;
     height: 100%;
     max-width: 1500px;
 }
 
-.container {
-    color:black;
-}
+
 .Container {
     display: flex;
     margin-top:40px;
@@ -35,7 +33,7 @@
     }
 
     .GlobalTitle::first-line {
-        color: black; /* Любой цвет, который вы хотите применить к первому слову */
+        color: var(--color-text); /* Любой цвет, который вы хотите применить к первому слову */
     }
 .hr-tittle{
     color:black;
@@ -87,21 +85,21 @@
     transform:translateX(-50%);
     z-index:1;
 }
-.slider-nav a{
-    width:0.5rem;
-    height:0.5rem;
-    border-radius:50%;
-    background-color:#fff;
-    opacity:0.75;
-    transition:opacity ease 250ms;
-}
+    .slider-nav a {
+        width: 0.5rem;
+        height: 0.5rem;
+        border-radius: 50%;
+        background-color: var(--color-text);
+        opacity: 0.75;
+        transition: opacity ease 250ms;
+    }
 .prev,
 .next {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     background: rgba(0, 0, 0, 0.5); /* Добавляем немного прозрачности для кнопок */
-    color: white;
+    color: var(--color-text);
     border: none;
     font-size: 24px;
     cursor: pointer;
@@ -282,7 +280,7 @@
 }
 .Car-Sharing {
     font-size: 20px;
-    color: black;
+    color: var(--color-text);
     margin-right: 20px;
     font-family: "Montserrat Alternates", sans-serif;
 }
@@ -292,11 +290,10 @@
 .Medium-img-button a {
     position: absolute;
     transform: translate(100%, 100%);
-    color: white;
+    color: var(--color-text);
     text-decoration: none;
     font-size: 60px;
     font-family: "Montserrat Alternates", sans-serif;
- 
 }
 /* Styles for the button */
 .Medium-img-button a {
